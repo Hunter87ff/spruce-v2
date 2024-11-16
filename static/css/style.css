@@ -3,6 +3,7 @@ body {
     color: #cbd5e0;
     padding-top: 4rem; 
 }
+
 html::-webkit-scrollbar {display: none; }
 .logo-text:hover{ color: #ffffff;}
 h1{font-family: "Patrick Hand", cursive;}
