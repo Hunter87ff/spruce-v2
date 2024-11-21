@@ -53,6 +53,7 @@ h1{font-family: "Patrick Hand", cursive;}
     color: #fff;
     background: rgba(12, 3, 77, 0.625);
 }
+
 #landing-page::after{
     content: "";
     position: absolute;
