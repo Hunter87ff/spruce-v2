@@ -5,7 +5,7 @@ export const features = [
     {
       icon: <Trophy className="w-6 h-6 text-indigo-500" />,
       title: "Tournament Management",
-      description: "Organize and manage esports tournaments with ease. Create brackets, track scores, and manage participants seamlessly."
+      description: "Organize and manage esports tournaments with ease. Create tournaments, assign role, and manage groups seamlessly."
     },
     {
       icon: <Command className="w-6 h-6 text-indigo-500" />,
