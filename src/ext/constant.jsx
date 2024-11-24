@@ -1,5 +1,5 @@
 import { Music, Trophy, Shield, Users, Command, Ticket } from 'lucide-react';
-
+import configs from './config.json';
 
 export const features = [
     {
@@ -50,10 +50,8 @@ export const footerSections = {
         title: 'Resources',
         links: [
             { name: 'Documentation', url: '#' },
-            { name: 'API Reference', url: '#' },
             { name: 'Status', url: '#' },
             { name: 'Change Log', url: '#' },
-            { name: 'Roadmap', url: '#' },
             { name: 'Blog', url: '#' }
         ]
     },
@@ -63,18 +61,16 @@ export const footerSections = {
             { name: 'About Us', url: '/about' },
             { name: 'Terms of Service', url: '#' },
             { name: 'Privacy Policy', url: '#' },
-            { name: 'Cookie Policy', url: '#' },
             { name: 'Contact', url: '#' }
         ]
     },
     support: {
         title: 'Support',
         links: [
-            { name: 'Help Center', url: '#' },
-            { name: 'Community', url: '#' },
+            { name: 'Help Center', url: configs.SUPPORT_SERVER },
+            { name: 'Community', url: configs.SUPPORT_SERVER },
             { name: 'Server Templates', url: '#' },
             { name: 'FAQ', url: '#' },
-            { name: 'Premium Support', url: '#' }
         ]
     }
 };

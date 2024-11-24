@@ -2,6 +2,7 @@ import React from 'react';
 import { Bot, Twitter, Github, Heart } from 'lucide-react';
 import {DiscordIcon} from '../ext/icons.jsx';
 import { footerSections } from '../ext/constant.jsx';
+import configs from "../ext/config.json";
 
 
 const Footer = () => {
@@ -20,13 +21,13 @@ const Footer = () => {
               Elevate your Discord server with the most comprehensive esports and community management bot. Built for competitive gaming communities.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href={`${configs.SUPPORT_SERVER}`} className="text-gray-400 hover:text-white transition-colors">
                 <DiscordIcon className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href={`${configs.GITHUB}`} className="text-gray-400 hover:text-white transition-colors">
                 <Github className="h-6 w-6" />
               </a>
             </div>

@@ -1,8 +1,6 @@
-import React from 'react';
-import { ChevronRight, Music, Trophy, Shield, Users, Command, Ticket, Bot } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Config } from '../ext/config';
+import configs from "../ext/config.json";
 
 
 const About = () => {
@@ -20,7 +18,7 @@ const About = () => {
                         <h2 className="text-2xl px-4 font-bold">Spruce</h2>
                         <div className="left-info-content">
                             <p className="py-4 px-4">
-                                Spruce is a multifunctional and Open Source Discord bot designed and developed by <a href={`${Config.AUTHOR_LINKEDIN}`}>Hunter87</a>. to streamline the management of Discord tournaments and servers. Our mission is to provide a comprehensive solution for tournament organizers and server administrators, ensuring a seamless and enjoyable experience for all participants.
+                                Spruce is a multifunctional and Open Source Discord app designed and developed by <a href={`${configs.AUTHOR_LINKEDIN}`}>Hunter87</a>. to streamline the management of Discord tournaments and servers. Our mission is to provide a comprehensive solution for tournament organizers and server administrators, ensuring a seamless and enjoyable experience for all participants.
                             </p>
                             <p className="py-4 px-4">
                                 In addition to its tournament and server management capabilities, Spruce features an AI chatbot component. This advanced chatbot can answer user queries related to tournaments, provide information, and assist with various subjects. It supports text-to-speech functionality, allowing users to listen to responses, and includes translation features to facilitate communication across languages.
@@ -49,7 +47,7 @@ const About = () => {
                                 Music Player: Plays high quality music with user friendly menu and filters
                             </li>
                             <li class="my-2">
-                                Text-to-speech: Listen to bot responses for a more interactive experience.
+                                Text-to-speech: Converts given text to voice output.
                             </li>
                             <li class="my-2">
                                 Translation: Communicate seamlessly across different languages.
