@@ -52,12 +52,14 @@ const Navbar = () => {
                     <div className="hidden md:flex items-center space-x-8">
                         {navItems.map((item, index) => (
                             <div key={index} className="relative group">
-                                {<a href={`${item.url || '#'}`} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                {
                                     <button className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium inline-flex items-center">
+                                    <Link to={`${item.url || '#'}`} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                         {item.label}
+                                    </Link>
                                         {item.dropdownItems && <ChevronDown className="ml-1 h-4 w-4" />}
                                     </button>
-                                </a>}
+                                }
                                 {item.dropdownItems && (
                                     <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-gray-900/90 backdrop-blur-lg ring-1 ring-black ring-opacity-5 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-200 invisible group-hover:visible">
                                         <div className="py-1">
@@ -103,19 +105,23 @@ const Navbar = () => {
                 <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900/90 backdrop-blur-lg">
                     {navItems.map((item, index) => (
                         <div key={index} className="space-y-1">
-                            <a href={item.url||"#"}>
+                            
                                 <button
                                     onClick={() => item.dropdownItems && toggleMobileDropdown(index)}
                                     className="w-full text-gray-300 hover:text-white hover:bg-gray-700 flex justify-between items-center px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                    <span>{item.label}</span>
+                                <span>
+                                  <Link to={`${item.url || '#'}`} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                    {item.label}
+                                  </Link>
+                                </span>
                                     {item.dropdownItems && (
                                         mobileDropdowns[index] ?
                                             <ChevronDown className="h-4 w-4" /> :
                                             <ChevronRight className="h-4 w-4" />
                                     )}
                                 </button>
-                            </a>
+                            
                             {item.dropdownItems && mobileDropdowns[index] && (
                                 <div className="pl-4 space-y-1 bg-gray-800/50 rounded-md ml-2">
                                     {item.dropdownItems.map((dropdownItem, dropIndex) => (
