@@ -146,23 +146,13 @@ const Dashboard = () => {
                                                         </Typography>
                                                     </Box>
                                                     <Box>
-                                                        {/* <IconButton size="small">
-                              <Broadcast size={16} />
-                            </IconButton> */}
+                                                        {/* <IconButton size="small"><Broadcast size={16} /></IconButton> */}
                                                         <IconButton size="small">
                                                             <Settings size={16} />
                                                         </IconButton>
                                                     </Box>
                                                 </Box>
-                                                <Box
-                                                    sx={{
-                                                        display: 'flex',
-                                                        flexDirection: { xs: 'column', sm: 'row' },
-                                                        gap: { xs: 1, sm: 0 },
-                                                        justifyContent: 'space-between',
-                                                        color: 'text.secondary'
-                                                    }}
-                                                >
+                                                <Box sx={{display: 'flex',flexDirection: { xs: 'column', sm: 'row' },gap: { xs: 1, sm: 0 },justifyContent: 'space-between',color: 'text.secondary'}}>
                                                     <Typography variant="body2">{event.status}</Typography>
                                                     <Typography variant="body2">{event.participants}</Typography>
                                                     <Typography variant="body2">{event.time}</Typography>
@@ -171,14 +161,7 @@ const Dashboard = () => {
                                         </Grid>
                                     ))}
                                 </Grid>
-                                <Button
-                                    variant="outlined"
-                                    fullWidth
-                                    startIcon={<Plus size={20} />}
-                                    sx={{ mt: 2 }}
-                                >
-                                    Create New Event
-                                </Button>
+                                <Button variant="outlined" fullWidth startIcon={<Plus size={20} />} sx={{ mt: 2 }} > Create New Event</Button>
                             </CardContent>
                         </Paper>
 
@@ -195,11 +178,7 @@ const Dashboard = () => {
                                         <CardContent>
                                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                 <Box sx={{ color: 'primary.main' }}>{stat.icon}</Box>
-                                                <Chip
-                                                    label={stat.status}
-                                                    size="small"
-                                                    color="success"
-                                                />
+                                                <Chip label={stat.status} size="small" color="success"/>
                                             </Box>
                                             <Typography variant="h4" sx={{ mt: 2, mb: 0.5 }}>
                                                 {stat.value}
