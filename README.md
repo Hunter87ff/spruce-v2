@@ -1,4 +1,4 @@
-# SpruceRe Project
+# Spruce V2
 
 ## Overview
 
