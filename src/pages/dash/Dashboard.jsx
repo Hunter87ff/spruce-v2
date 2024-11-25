@@ -49,7 +49,7 @@ const darkTheme = createTheme({
         },
         background: {
             default: '#111827',
-            paper: 'rgba(31, 41, 55, 0.5)',
+            paper: 'rgba(31, 41, 55, 0.918)',
         },
     },
 });
