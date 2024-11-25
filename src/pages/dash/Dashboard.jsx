@@ -1,46 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-    Trophy,
-    Swords,
-    MessageSquare,
-    Settings,
-    Users,
-    Plus,
-    ChevronRight,
-    Hash,
-    Calendar,
-    Shield,
-    Bell,
-    //   Broadcast,
-    Menu
-} from 'lucide-react';
-import {
-    Box,
-    Paper,
-    Typography,
-    Button,
-    Select,
-    MenuItem,
-    Grid,
-    CardContent,
-    CardHeader,
-    IconButton,
-    FormControl,
-    Container,
-    ThemeProvider,
-    createTheme,
-    useMediaQuery,
-    Drawer,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-    AppBar,
-    Toolbar,
-    Chip
-} from '@mui/material';
-
+import {Trophy,Swords,MessageSquare,Settings,Users,Plus,ChevronRight,Hash,Calendar,Shield,Bell,Menu} from 'lucide-react';
+import {Box,Paper,Typography,Button,Select,MenuItem,Grid,CardContent,CardHeader,IconButton,FormControl,Container,ThemeProvider,createTheme,useMediaQuery,Drawer,List,ListItem,ListItemIcon,ListItemText,AppBar,Toolbar,Chip} from '@mui/material';
+import { activeEvents } from "./dash-config";
 const darkTheme = createTheme({
     palette: {
         mode: 'dark',
@@ -73,83 +35,25 @@ const Dashboard = () => {
         "#results"
     ];
 
-    const activeEvents = [
-        {
-            type: "Tournament",
-            name: "Weekend Valorant Cup",
-            status: "Registering",
-            participants: "12/16",
-            time: "Starts in 2 hours"
-        },
-        {
-            type: "Scrim",
-            name: "CS:GO Practice Match",
-            status: "Looking for opponents",
-            participants: "5/10",
-            time: "Today, 8 PM EST"
-        },
-        {
-            type: "Tournament",
-            name: "Monthly Fortnite League",
-            status: "Live",
-            participants: "32/32",
-            time: "Ends in 3 days"
-        },
-        {
-            type: "Scrim",
-            name: "Valorant Competitive",
-            status: "Scheduled",
-            participants: "8/10",
-            time: "Tomorrow, 6 PM EST"
-        }
-    ];
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
+    
     const QuickActions = (
         <Box sx={{ width: isTablet ? '100%' : 280 }}>
-            <CardHeader
-                title="Esports"
-                sx={{ pt: 2 }}
-            />
+            <CardHeader title="Esports" sx={{ pt: 2 }}/>
             <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    startIcon={<Trophy size={20} />}
-                    endIcon={<ChevronRight size={20} />}
-                    size="large"
-                >
-                    Tournament
-                </Button>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    startIcon={<Swords size={20} />}
-                    endIcon={<ChevronRight size={20} />}
-                    size="large"
-                >
-                    Scrim
-                </Button>
+                <Button variant="contained" color="primary" fullWidth startIcon={<Trophy size={20} />} endIcon={<ChevronRight size={20} />} size="large">Tournament</Button>
+                <Button variant="contained"  color="primary" fullWidth startIcon={<Swords size={20} />} endIcon={<ChevronRight size={20} />} size="large">Scrim</Button>
             </CardContent>
 
             <CardHeader title="Send To Channel" />
             <CardContent>
                 <List dense>
                     {channels.map(channel => (
-                        <ListItem
-                            key={channel}
-                            button
-                            sx={{
-                                borderRadius: 1,
-                                mb: 1,
-                                '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' }
-                            }}
-                        >
+                        <ListItem key={channel} component="button" sx={{ borderRadius: 1, mb: 1, '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.1)' } }}>
                             <ListItemIcon sx={{ minWidth: 36 }}>
                                 <Hash size={16} />
                             </ListItemIcon>
@@ -157,65 +61,28 @@ const Dashboard = () => {
                         </ListItem>
                     ))}
                 </List>
-                <Button
-                    variant="outlined"
-                    fullWidth
-                    startIcon={<Plus size={16} />}
-                    sx={{ mt: 2 }}
-                >
-                    Add Channel
-                </Button>
+                <Button variant="outlined" fullWidth startIcon={<Plus size={16} />} sx={{ mt: 2 }}>Add Channel</Button>
             </CardContent>
         </Box>
     );
 
     return (
         <ThemeProvider theme={darkTheme}>
-            <Box sx={{
-                display: 'flex',
-                minHeight: '100vh',
-                minWidth: isTablet?'100vw':'100%',
-                background: 'linear-gradient(to bottom, #111827, #000000)'
-            }}>
+            <Box sx={{display: 'flex',minHeight: '100vh',minWidth: isTablet?'100vw':'100%',background: 'linear-gradient(to bottom, #111827, #000000)'}}>
                 {/* App Bar */}
-                <AppBar
-                    position="fixed"
-                    sx={{
-                        bgcolor: 'background.paper',
-                        boxShadow: 'none',
-                        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-                    }}
-                >
+                <AppBar position="fixed" sx={{ bgcolor: 'background.paper',  boxShadow: 'none', borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
                     <Toolbar>
-                        <IconButton
-                            color="inherit"
-                            edge="start"
-                            onClick={handleDrawerToggle}
-                            sx={{ mr: 2, display: { lg: 'none' } }}
-                        >
+                        <IconButton color="inherit"  edge="start"  onClick={handleDrawerToggle} sx={{ mr: 2, display: { lg: 'none' } }}>
                             <Menu />
                         </IconButton>
 
                         <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', gap: 2 }}>
-                            <Typography
-                                variant={isMobile ? "h6" : "h5"}
-                                sx={{
-                                    fontWeight: 'bold',
-                                    background: 'linear-gradient(to right, #6366f1, #a855f7)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: ''
-                                }}
-                            >
+                            <Typography variant={isMobile ? "h6" : "h5"} sx={{ fontWeight: 'bold', background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: ''}}>
                                 <Link to="/" className='font-bold'>Spruce</Link>
                             </Typography>
                             {/* <FormControl size="small" sx={{ minWidth: 150 }}>
-                                <Select
-                                    value={selectedServer}
-                                    onChange={(e) => setSelectedServer(e.target.value)}
-                                >
-                                    {servers.map(server => (
-                                        <MenuItem key={server} value={server}>{server}</MenuItem>
-                                    ))}
+                                <Select value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)} >
+                                    {servers.map(server => ( <MenuItem key={server} value={server}>{server}</MenuItem>))}
                                 </Select>
                             </FormControl> */}
                         </Box>
@@ -224,78 +91,30 @@ const Dashboard = () => {
                             <IconButton color="inherit" sx={{ display: { xs: 'flex', sm: 'none' } }}>
                                 <Bell size={20} />
                             </IconButton>
-                            <Button
-                                variant="contained"
-                                color="inherit"
-                                startIcon={<Bell size={20} />}
-                                sx={{ display: { xs: 'none', sm: 'flex' } }}
-                            >
-                                Notifications
-                            </Button>
-                            <IconButton color="primary" sx={{ display: { xs: 'flex', sm: 'none' } }}>
+                            <Button variant="contained" color="inherit" startIcon={<Bell size={20} />} sx={{ display: { xs: 'none', sm: 'flex' } }} > Notifications </Button>
+                            <IconButton color="primary" sx={{ display: { xs: 'flex', sm: 'none' } }}> 
                                 <Settings size={20} />
                             </IconButton>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                startIcon={<Settings size={20} />}
-                                sx={{ display: { xs: 'none', sm: 'flex' } }}
-                            >
-                                Settings
-                            </Button>
+                            <Button variant="contained" color="primary" startIcon={<Settings size={20} />} sx={{ display: { xs: 'none', sm: 'flex' } }}>Settings</Button>
                         </Box> */}
                     </Toolbar>
                 </AppBar>
 
                 {/* Sidebar for larger screens */}
                 {!isTablet && (
-                    <Paper
-                        sx={{
-                            width: 280,
-                            flexShrink: 0,
-                            borderRadius: 0,
-                            height: '100vh',
-                            position: 'fixed',
-                            top: 64,
-                            left: 0,
-                            overflowY: 'auto'
-                        }}
-                    >
+                    <Paper sx={{ width: 280, flexShrink: 0, borderRadius: 0, height: '100vh', position: 'fixed', top: 64, left: 0, overflowY: 'auto' }} >
                         {QuickActions}
                     </Paper>
                 )}
 
                 {/* Drawer for mobile */}
-                <Drawer
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true,
-                    }}
-                    sx={{
-                        display: { xs: 'block', lg: 'none' },
-                        '& .MuiDrawer-paper': {
-                            boxSizing: 'border-box',
-                            width: 280,
-                            bgcolor: 'background.paper'
-                        },
-                    }}
-                >
+                <Drawer variant="temporary" open={mobileOpen} onClose={handleDrawerToggle} ModalProps={{ keepMounted: true, }}
+                    sx={{ display: { xs: 'block', lg: 'none' }, '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280, bgcolor: 'background.paper' }, }} >
                     {QuickActions}
                 </Drawer>
 
                 {/* Main content */}
-                <Box
-                    component="main"
-                    sx={{
-                        flexGrow: 1,
-                        p: 3,
-                        mt: 8,
-                        ml: { lg: '280px' },
-                        minWidth: "85vw",
-                    }}
-                >
+                <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8, ml: { lg: '280px' }, minWidth: "85vw", }} >
                     <Container maxWidth="xl" sx={{ py: 2 }}>
                         {/* Active Events */}
                         <Paper sx={{ mb: 4 }}>
@@ -311,12 +130,7 @@ const Dashboard = () => {
                                 <Grid container spacing={2}>
                                     {activeEvents.map((event, index) => (
                                         <Grid item xs={12} md={6} key={index}>
-                                            <Paper
-                                                sx={{
-                                                    p: 2,
-                                                    bgcolor: 'rgba(255, 255, 255, 0.05)'
-                                                }}
-                                            >
+                                            <Paper sx={{ p: 2, bgcolor: 'rgba(255, 255, 255, 0.05)' }} >
                                                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                                                     <Box>
                                                         <Chip
