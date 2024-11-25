@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import './index.css'
 import Home from './pages/Home'
 import About from './pages/About'
-import E404 from "./pages/error/e404"
+import E404 from "./pages/error/E404"
 import Dashboard from './pages/dash/Dashboard'
 import Dashboardv2 from "./pages/dash/Dashboard2"
 export default function App() {

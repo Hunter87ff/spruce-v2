@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const E404: React.FC = () => {
+const E404 = () => {
     return (
         <div className="min-h-screen min-w-screen flex flex-col justify-center items-center bg-[#1a1a1a] text-white font-['Inter']">
             <h1 className="text-9xl text-white font-bold ">
