@@ -59,8 +59,8 @@ export const footerSections = {
         title: 'Company',
         links: [
             { name: 'About Us', url: '/about' },
-            { name: 'Terms of Service', url: '#' },
-            { name: 'Privacy Policy', url: '#' },
+            { name: 'Terms of Service', url: '/terms' },
+            { name: 'Privacy Policy', url: '/privacy' },
             { name: 'Contact', url: '#' }
         ]
     },

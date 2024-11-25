@@ -4,14 +4,13 @@ import Footer from '../components/Footer';
 import { features } from '../ext/constant.jsx';
 import configs from "../ext/config.json";
 
-
-
 const Home = () => {
     return (
         <div className="min-h-screen w-screen bg-gradient-to-b from-gray-900 to-black text-white" id=''>
             {/* Hero Section */}
             <Navbar />
             <div className="container mx-auto py-20 w-full">
+                {/* Alerts can be place here!!*/}
                 <div className="text-center mb-16">
                     <div className="flex items-center justify-center mb-6">
                         {/* <Bot className="w-12 h-12 text-indigo-500 mr-4" /> */}

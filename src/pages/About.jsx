@@ -30,34 +30,33 @@ const About = () => {
                     </div> {/*<!-- left-info --> */}
                     <div className="right-info py-4">
                         <h2 className="text-2xl px-4 font-bold">Key Features</h2>
-                        <ul class="list-disc pl-6">
-                            <li class="my-2">
+                        <ul className="list-disc pl-6">
+                            <li className="my-2">
                                 Tournament management: Create, organize, and manage tournaments with ease.
                             </li>
-                            <li class="my-2">
+                            <li className="my-2">
                                 Server management: Automate moderation tasks, customize server settings, and enhance community engagement.
                             </li>
-                            <li class="my-2">
+                            <li className="my-2">
                                 AI Chatbot: Get answers to your tournament-related questions and other subjects.
                             </li>
-                            <li class="nb-2">
+                            <li className="nb-2">
                                 Ticket Tools: Can create and manage tickets with a single command
                             </li>
-                            <li class="my-2">
+                            <li className="my-2">
                                 Music Player: Plays high quality music with user friendly menu and filters
                             </li>
-                            <li class="my-2">
+                            <li className="my-2">
                                 Text-to-speech: Converts given text to voice output.
                             </li>
-                            <li class="my-2">
+                            <li className="my-2">
                                 Translation: Communicate seamlessly across different languages.
                             </li>
-                            <li class="my-2">
+                            <li className="my-2">
                                 Server Sanitization : Sanitize the vulnarabilities to protect the server from suspicious activities.
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
             <Footer />
