@@ -2,7 +2,7 @@
 
 ## Overview
 
-SpruceRe is a web configuration project designed to simplify and streamline the management of web application settings. This project provides a user-friendly interface and robust backend to handle various configuration needs.
+SpruceV2 is the upgraded version of the previous site for spruce. to provide more user friendly experience
 
 ## Features
 
