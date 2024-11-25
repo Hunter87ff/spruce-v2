@@ -111,7 +111,7 @@ const Dashboard = () => {
     const QuickActions = (
         <Box sx={{ width: isTablet ? '100%' : 280 }}>
             <CardHeader
-                title="Create New"
+                title="Esports"
                 sx={{ pt: 2 }}
             />
             <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -123,7 +123,7 @@ const Dashboard = () => {
                     endIcon={<ChevronRight size={20} />}
                     size="large"
                 >
-                    Create Tournament
+                    Tournament
                 </Button>
                 <Button
                     variant="contained"
@@ -133,17 +133,7 @@ const Dashboard = () => {
                     endIcon={<ChevronRight size={20} />}
                     size="large"
                 >
-                    Schedule Scrim
-                </Button>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    startIcon={<MessageSquare size={20} />}
-                    endIcon={<ChevronRight size={20} />}
-                    size="large"
-                >
-                    Send Embed Message
+                    Scrim
                 </Button>
             </CardContent>
 
@@ -213,12 +203,12 @@ const Dashboard = () => {
                                     fontWeight: 'bold',
                                     background: 'linear-gradient(to right, #6366f1, #a855f7)',
                                     WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent'
+                                    WebkitTextFillColor: ''
                                 }}
                             >
                                 <Link to="/" className='font-bold'>Spruce</Link>
                             </Typography>
-                            <FormControl size="small" sx={{ minWidth: 150 }}>
+                            {/* <FormControl size="small" sx={{ minWidth: 150 }}>
                                 <Select
                                     value={selectedServer}
                                     onChange={(e) => setSelectedServer(e.target.value)}
@@ -227,10 +217,10 @@ const Dashboard = () => {
                                         <MenuItem key={server} value={server}>{server}</MenuItem>
                                     ))}
                                 </Select>
-                            </FormControl>
+                            </FormControl> */}
                         </Box>
 
-                        <Box sx={{ display: 'flex', gap: 1 }}>
+                        {/* <Box sx={{ display: 'flex', gap: 1 }}>
                             <IconButton color="inherit" sx={{ display: { xs: 'flex', sm: 'none' } }}>
                                 <Bell size={20} />
                             </IconButton>
@@ -253,7 +243,7 @@ const Dashboard = () => {
                             >
                                 Settings
                             </Button>
-                        </Box>
+                        </Box> */}
                     </Toolbar>
                 </AppBar>
 
