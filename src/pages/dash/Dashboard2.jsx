@@ -1,16 +1,14 @@
 import { ChevronRight } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { features } from '../ext/constant.jsx';
-import configs from "../ext/config.json";
+import { features } from '../../ext/constant.jsx';
+import configs from '../../ext/config.json'
+import DashNav from './DashNav';
 
 
-
-const Home = () => {
+const Dashboardv2 = () => {
     return (
         <div className="min-h-screen w-screen bg-gradient-to-b from-gray-900 to-black text-white" id=''>
+            <DashNav />
             {/* Hero Section */}
-            <Navbar />
             <div className="container mx-auto py-20 w-full">
                 <div className="text-center mb-16">
                     <div className="flex items-center justify-center mb-6">
@@ -73,9 +71,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };
 
-export default Home;
+export default Dashboardv2;

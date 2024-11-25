@@ -23,9 +23,8 @@ export default {
           'secondary': '#ffed4a',
           'danger': '#e3342f',
         },
-        maxWidth: {
-          '50p': '50%',
-        }
+        maxWidth: { '50p': '50%'},
+        minWidth: { 'screen': '100vw'},
       },
     },
     plugins: [],

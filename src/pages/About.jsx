@@ -8,7 +8,7 @@ const About = () => {
 
 
     return (
-        <div className="min-h-screen w-screen bg-gradient-to-b from-gray-900 to-black text-white">
+        <div className="min-h-screen w-screen bg-gradient-to-b from-gray-900 to-black text-white" id='about'>
             {/* Hero Section */}
             <Navbar />
             <div className="container mx-auto py-20 w-full">

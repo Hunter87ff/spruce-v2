@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import configs from "../ext/config.json";
+import { Link } from 'react-router-dom';
+import Home from '../pages/Home';
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +24,9 @@ const Navbar = () => {
             label: 'Features',
             dropdownItems: ['Tournament System', 'Scrim Management', 'Music Player', 'Moderation', 'Role Management', 'Tickets']
         },
-        { label: 'Commands' },
-        { label: 'Documentation' },
-        { label: 'Support' }
+        { label: 'Invite', url: configs.INVITE_URL },
+        { label: 'Status', url: "/status" },
+        { label: 'Support', url: configs.SUPPORT_SERVER }
     ];
 
     const toggleMobileDropdown = (index) => {
@@ -39,22 +42,22 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <a href="/">
+                    <Link to="/">
                         <div className="flex-shrink-0 flex items-center cursor-pointer">
-                            {/* <Bot className="h-8 w-8 text-indigo-500" /> */}
                             <img src="/assets/img/logo/icon-192x192.png" alt="" className='max-h-6 rounded-full' />
                             <span className="ml-2 text-xl font-bold text-white">Spruce</span>
                         </div>
-                    </a>
+                    </Link>
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-8">
                         {navItems.map((item, index) => (
                             <div key={index} className="relative group">
-                                <button className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium inline-flex items-center">
-                                    {item.label}
-                                    {item.dropdownItems && <ChevronDown className="ml-1 h-4 w-4" />}
-                                </button>
-
+                                {<a href={`${item.url || '#'}`} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                    <button className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium inline-flex items-center">
+                                        {item.label}
+                                        {item.dropdownItems && <ChevronDown className="ml-1 h-4 w-4" />}
+                                    </button>
+                                </a>}
                                 {item.dropdownItems && (
                                     <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-gray-900/90 backdrop-blur-lg ring-1 ring-black ring-opacity-5 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-200 invisible group-hover:visible">
                                         <div className="py-1">
@@ -75,13 +78,13 @@ const Navbar = () => {
                     </div>
 
                     {/* CTA Button */}
-                    <a href={`${configs.INVITE_URL}`}>
+                    <Link to="/dashboard">
                         <div className="hidden md:flex items-center">
                             <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
-                                Add to Discord
+                                Dashboard
                             </button>
                         </div>
-                    </a>
+                    </Link>
 
                     {/* Mobile menu button */}
                     <div className="md:hidden">
@@ -100,17 +103,19 @@ const Navbar = () => {
                 <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900/90 backdrop-blur-lg">
                     {navItems.map((item, index) => (
                         <div key={index} className="space-y-1">
-                            <button
-                                onClick={() => item.dropdownItems && toggleMobileDropdown(index)}
-                                className="w-full text-gray-300 hover:text-white hover:bg-gray-700 flex justify-between items-center px-3 py-2 rounded-md text-base font-medium"
-                            >
-                                <span>{item.label}</span>
-                                {item.dropdownItems && (
-                                    mobileDropdowns[index] ?
-                                        <ChevronDown className="h-4 w-4" /> :
-                                        <ChevronRight className="h-4 w-4" />
-                                )}
-                            </button>
+                            <a href={item.url||"#"}>
+                                <button
+                                    onClick={() => item.dropdownItems && toggleMobileDropdown(index)}
+                                    className="w-full text-gray-300 hover:text-white hover:bg-gray-700 flex justify-between items-center px-3 py-2 rounded-md text-base font-medium"
+                                >
+                                    <span>{item.label}</span>
+                                    {item.dropdownItems && (
+                                        mobileDropdowns[index] ?
+                                            <ChevronDown className="h-4 w-4" /> :
+                                            <ChevronRight className="h-4 w-4" />
+                                    )}
+                                </button>
+                            </a>
                             {item.dropdownItems && mobileDropdowns[index] && (
                                 <div className="pl-4 space-y-1 bg-gray-800/50 rounded-md ml-2">
                                     {item.dropdownItems.map((dropdownItem, dropIndex) => (
@@ -126,9 +131,11 @@ const Navbar = () => {
                             )}
                         </div>
                     ))}
-                    <button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
-                        Add to Discord
-                    </button>
+                    <a href="/dashboard">
+                        <button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
+                            Dashboard
+                        </button>
+                    </a>
                 </div>
             </div>
         </nav>
