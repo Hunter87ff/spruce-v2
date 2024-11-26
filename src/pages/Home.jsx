@@ -66,7 +66,7 @@ const Home = () => {
                         <button className="bg-white text-indigo-900 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all">
                             Get Started
                         </button>
-                        <button className="border border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-all">
+                        <button className="bg-gray-700 border border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-all">
                             View Documentation
                         </button>
                     </div>
