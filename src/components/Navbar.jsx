@@ -137,11 +137,10 @@ const Navbar = () => {
                             )}
                         </div>
                     ))}
-                    <a href="/dashboard">
+                    
                         <button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
-                            Dashboard
+                            <Link to="/dashboard">Dashboard</a>
                         </button>
-                    </a>
                 </div>
             </div>
         </nav>
