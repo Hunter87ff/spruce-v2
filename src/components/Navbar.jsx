@@ -108,7 +108,7 @@ const Navbar = () => {
                             
                                 <button
                                     onClick={() => item.dropdownItems && toggleMobileDropdown(index)}
-                                    className="w-full text-gray-300 hover:text-white hover:bg-gray-700 flex justify-between items-center px-3 py-2 rounded-md text-base font-medium"
+                                    className="bg-gray-700 w-full text-gray-300 hover:text-white hover:bg-gray-700 flex justify-between items-center px-3 py-2 rounded-md text-base font-medium"
                                 >
                                 <span>
                                   <Link to={`${item.url || '#'}`} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
