@@ -63,7 +63,7 @@ const Home = () => {
                     <h2 className="text-3xl font-bold mb-4">Ready to elevate your server?</h2>
                     <p className="text-gray-300 mb-8">Join thousands of servers already using Spruce</p>
                     <div className="flex justify-center gap-4">
-                        <button className="bg-white border-2 border-transparent text-indigo-900 font-bold py-3 px-8 rounded-full hover:bg-gray-800 hover:text-white hover:border-purple-700 transition-all">
+                        <button className="bg-white border border-transparent text-indigo-900 font-bold py-3 px-8 rounded-full hover:bg-gray-800 hover:text-white hover:border-purple-700 transition-all">
                             Get Started
                         </button>
                         <button className="bg-gray-800 border border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-all">
