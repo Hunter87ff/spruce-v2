@@ -48,7 +48,7 @@ const Home = () => {
                 {/* Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                     {features.map((feature, index) => (
-                        <div key={index} className="p-6 border-2 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:border-purple-700 transition-all">
+                        <div key={index} className="p-6 border-2 border-transparent rounded-xl bg-gray-800/50 backdrop-blur-sm hover:border-purple-700 transition-all">
                             <div className="mb-4">
                                 {feature.icon}
                             </div>
