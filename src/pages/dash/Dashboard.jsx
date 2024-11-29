@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {Trophy,Swords,MessageSquare,Settings,Users,Plus,ChevronRight,Hash,Calendar,Shield,Bell,Menu} from 'lucide-react';
 import {Box,Paper,Typography,Button,Select,MenuItem,Grid,CardContent,CardHeader,IconButton,FormControl,Container,ThemeProvider,createTheme,useMediaQuery,Drawer,List,ListItem,ListItemIcon,ListItemText,AppBar,Toolbar,Chip} from '@mui/material';
-import { activeEvents } from "./dash-config";
+import { activeEvents, auth, authCheck } from "./dash-config";
+import axios from 'axios'; 
+
 const darkTheme = createTheme({
     palette: {
         mode: 'dark',
@@ -17,16 +19,25 @@ const darkTheme = createTheme({
 });
 
 const Dashboard = () => {
-    const [selectedServer, setSelectedServer] = useState("Gaming Heroes");
+    const [selectedServer, setSelectedServer] = useState(["Your Server"]);
     const [mobileOpen, setMobileOpen] = useState(false);
     const isMobile = useMediaQuery(darkTheme.breakpoints.down('md'));
     const isTablet = useMediaQuery(darkTheme.breakpoints.down('lg'));
+    let servers = [];
+    const handleLogin = async () => {
+        try{
+            const response = await axios.get(`${authCheck}${localStorage.getItem("token")||"x"}`);
+            if (response.status != 288) {
+                window.location.href = auth;
+            }
+        }
+        catch(err){
+            window.location.href = auth;
+        }
+    }
+    window.onload = handleLogin;
 
-    const servers = [
-        "Gaming Heroes",
-        "Esports Club",
-        "Tournament Central"
-    ];
+
 
     const channels = [
         "#announcements",

@@ -4,7 +4,7 @@ import E404 from "./pages/error/E404"
 import Dashboard from './pages/dash/Dashboard'
 import Loading from './pages/Loading'
 import {PrivacyPage, TermsPage} from "./pages/legal/pages"
-
+import AuthPage from './pages/AuthPage'
 
 export const routes = [
     { path: '/', component: Home },
@@ -13,5 +13,6 @@ export const routes = [
     { path: '/dashboard', component: Dashboard },
     { path: '/loading', component: Loading },
     { path: '/privacy', component: PrivacyPage },
-    { path: '/terms', component: TermsPage }
+    { path: '/terms', component: TermsPage },
+    { path: '/auth', component: AuthPage }
 ];

@@ -13,8 +13,8 @@ const About = () => {
             <Navbar />
             <div className="container mx-auto py-20 w-full">
                 <h2 className='text-2xl font-bold text-white hover:text-ellipsis cursor-pointer text-center'>About Us</h2>
-                <div className="about-container md:flex md:flex-row xl:flex-row">
-                    <div className="left-info py-4 xl:max-w-50p">
+                <div className="about-container md:flex  xl:flex-row">
+                    <div className="left-info py-4 md:max-w-50p">
                         <h2 className="text-2xl px-4 font-bold">Spruce</h2>
                         <div className="left-info-content">
                             <p className="py-4 px-4">
