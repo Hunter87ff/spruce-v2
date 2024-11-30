@@ -5,7 +5,6 @@ export async function fetch_api(route, method="GET", data=null) {
     
     let headers = {
         'Content-Type': 'application/json',
-        'Cookie': document.cookie.toString() || "x",
     }
     if(localStorage.getItem("token")) {
         headers['Authorization'] = `${localStorage.getItem("token") || "x"}`;
@@ -17,4 +16,22 @@ export async function fetch_api(route, method="GET", data=null) {
         headers: headers
     });
     return response;
+}
+
+export const getGuilds = async () => {
+    let _guilds = [];
+    if (localStorage.getItem('token') && localStorage.getItem("guilds")) {
+        _guilds = JSON.parse(localStorage.getItem("guilds"));
+        return _guilds;
+    }
+    
+    else {
+        const response = await fetch_api(`${config.API_ROUTE+'/guilds'}`);
+        if (response.status == 200) {
+            _guilds = response.data;
+            localStorage.setItem("guilds", JSON.stringify(_guilds));
+            return _guilds;
+        }
+    }
+    console.log(_guilds);
 }

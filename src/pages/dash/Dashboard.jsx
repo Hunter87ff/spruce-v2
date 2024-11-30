@@ -4,7 +4,7 @@ import {Trophy,Swords,MessageSquare,Settings,Users,Plus,ChevronRight,Hash,Calend
 import {Box,Paper,Typography,Button,Select,MenuItem,Grid,CardContent,CardHeader,IconButton,FormControl,Container,ThemeProvider,createTheme,useMediaQuery,Drawer,List,ListItem,ListItemIcon,ListItemText,AppBar,Toolbar,Chip} from '@mui/material';
 import { activeEvents} from "./dash-config";
 import axios from 'axios'; 
-import {fetch_api} from '../../ext/util'
+import {fetch_api, getGuilds} from '../../ext/util'
 import * as config from "../../config"
 
 const darkTheme = createTheme({
@@ -21,15 +21,18 @@ const darkTheme = createTheme({
 });
 
 const Dashboard = () => {
-    const [selectedServer, setSelectedServer] = useState(["Your Server"]);
+    const [selectedServer, setSelectedServer] = useState("");
     const [mobileOpen, setMobileOpen] = useState(false);
     const isMobile = useMediaQuery(darkTheme.breakpoints.down('md'));
     const isTablet = useMediaQuery(darkTheme.breakpoints.down('lg'));
-    let servers = [];
+    const servers = localStorage.getItem("guilds") ? JSON.parse(localStorage.getItem("guilds")) : [];
+
+    // Load servers by calling await getGuilds using useeffect
     const handleLogin = async () => {
         try{
             const response = await fetch_api(`${config.API_ROUTE+'/oauth2'}`);
             if (response.status != 288) {
+                localStorage.removeItem("guilds");
                 window.location.href = config.AUTH_URL;
             }
             return response.data;
@@ -38,7 +41,17 @@ const Dashboard = () => {
             window.location.href = config.AUTH_URL;
         }
     }
-    window.onload = handleLogin;
+
+    async function manageHooks(){
+        // localStorage.removeItem("guilds");
+        await handleLogin();
+        await getGuilds();
+    }
+
+    window.onload = manageHooks;
+
+
+
     // time interval for checking if the user is authenticated
     useEffect(() => {
         const interval = setInterval(handleLogin, 60000);
@@ -99,14 +112,14 @@ const Dashboard = () => {
                             <Typography variant={isMobile ? "h6" : "h5"} sx={{ fontWeight: 'bold', background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: ''}}>
                                 <Link to="/" className='font-bold'>Spruce</Link>
                             </Typography>
-                            {/* <FormControl size="small" sx={{ minWidth: 150 }}>
-                                <Select value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)} >
-                                    {servers.map(server => ( <MenuItem key={server} value={server}>{server}</MenuItem>))}
-                                </Select>
-                            </FormControl> */}
+                            <select className='bg-neutral-800 text-white border-transparent border hover:border-purple-700 px-2 py-2 rounded' onChange={(e) => setSelectedServer(e.target.value)}>
+                                {servers.map((server, index) => (
+                                    <option className='bg-transparent border border-purple-700 rounded px-4 py-2' key={index} value={server.id}>{server.name}</option>
+                                ))}
+                            </select>
                         </Box>
 
-                        {/* <Box sx={{ display: 'flex', gap: 1 }}>
+                        <Box sx={{ display: 'flex', gap: 1 }}>
                             <IconButton color="inherit" sx={{ display: { xs: 'flex', sm: 'none' } }}>
                                 <Bell size={20} />
                             </IconButton>
@@ -115,7 +128,7 @@ const Dashboard = () => {
                                 <Settings size={20} />
                             </IconButton>
                             <Button variant="contained" color="primary" startIcon={<Settings size={20} />} sx={{ display: { xs: 'none', sm: 'flex' } }}>Settings</Button>
-                        </Box> */}
+                        </Box>
                     </Toolbar>
                 </AppBar>
 
