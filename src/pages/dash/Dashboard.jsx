@@ -114,8 +114,8 @@ const Dashboard = () => {
                             <Typography variant={isMobile ? "h6" : "h5"} sx={{ fontWeight: 'bold', background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: '' }}>
                                 <Link to="/" className='font-bold'>Spruce</Link>
                             </Typography>
-                            <Select value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)} displayEmpty>
-                                <MenuItem value="" disabled>Select Server</MenuItem>
+                            <Select defaultValue='Select Server' value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)} displayEmpty>
+                                <MenuItem selected value="" disabled>Select Server</MenuItem>
                                 {servers.map((server, index) => (
                                     <MenuItem key={index} value={server.id}>
                                         {server.name}
