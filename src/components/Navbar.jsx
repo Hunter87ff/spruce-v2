@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import configs from "../ext/config.json";
 import { Link } from 'react-router-dom';
-import Home from '../pages/Home';
 
 
 const Navbar = () => {
@@ -80,7 +79,7 @@ const Navbar = () => {
                     </div>
 
                     {/* CTA Button */}
-                    <Link to="/dashboard">
+                    <Link to="/auth">
                         <div className="hidden md:flex items-center">
                             <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
                                 Dashboard
@@ -139,7 +138,7 @@ const Navbar = () => {
                     ))}
                     
                         <button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
-                            <Link className="text-white" to="/dashboard">Dashboard</Link>
+                            <Link className="text-white" to="/auth">Dashboard</Link>
                         </button>
                 </div>
             </div>

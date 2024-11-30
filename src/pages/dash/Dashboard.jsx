@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {Trophy,Swords,MessageSquare,Settings,Users,Plus,ChevronRight,Hash,Calendar,Shield,Bell,Menu} from 'lucide-react';
 import {Box,Paper,Typography,Button,Select,MenuItem,Grid,CardContent,CardHeader,IconButton,FormControl,Container,ThemeProvider,createTheme,useMediaQuery,Drawer,List,ListItem,ListItemIcon,ListItemText,AppBar,Toolbar,Chip} from '@mui/material';
-import { activeEvents, auth, authCheck } from "./dash-config";
+import { activeEvents} from "./dash-config";
 import axios from 'axios'; 
+import * as config from "../../config"
 
 const darkTheme = createTheme({
     palette: {
@@ -26,13 +27,14 @@ const Dashboard = () => {
     let servers = [];
     const handleLogin = async () => {
         try{
-            const response = await axios.get(`${authCheck}${localStorage.getItem("token")||"x"}`);
+            const response = await axios.get(`${config.API_ROUTE+'/oauth2?code='}${localStorage.getItem("token")||"x"}`);
             if (response.status != 288) {
-                window.location.href = auth;
+                window.location.href = config.AUTH_URL;
             }
+            console.log(response.data);
         }
         catch(err){
-            window.location.href = auth;
+            window.location.href = config.AUTH_URL;
         }
     }
     window.onload = handleLogin;

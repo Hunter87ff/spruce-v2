@@ -2,7 +2,7 @@ import React from 'react';
 import { Loader2, Bot } from 'lucide-react';
 import axios from 'axios';
 import * as config from '../config.js';
-
+import Navbar from '../components/Navbar.jsx';
 
 const AuthPage = () => {
 
@@ -27,12 +27,15 @@ const AuthPage = () => {
             window.location.href = config.AUTH_URL;
         }
     }
-
     window.onload = handleLogin;
+    window.onclick = handleLogin;
     return (
+        <div className="container">
+            <Navbar />
         <div className="flex flex-col items-center justify-center min-w-screen min-h-screen bg-gray-900">
             {/* Main container */}
             <div className="w-full max-w-md p-8 space-y-8">
+                
                 {/* Animated bot icon */}
                 <div className="flex justify-center">
                     <div className="relative">
@@ -89,6 +92,7 @@ const AuthPage = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
