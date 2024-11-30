@@ -103,7 +103,7 @@ const Dashboard = () => {
     return (
         <ThemeProvider theme={darkTheme}>
             <Box sx={{display: 'flex',minHeight: '100vh',minWidth: isTablet?'100vw':'100%',background: 'linear-gradient(to bottom, #111827, #000000)'}}>
-                /* App Bar */
+                {/* App Bar */}
                 <AppBar position="fixed" sx={{ bgcolor: 'background.paper', boxShadow: 'none', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
                     <Toolbar>
                         <IconButton color="inherit" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { lg: 'none' } }}>
