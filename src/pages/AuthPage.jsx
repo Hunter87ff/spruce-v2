@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import { Loader2, Bot } from 'lucide-react';
 import axios from 'axios';
 import * as config from '../config.js';
 import Navbar from '../components/Navbar.jsx';
-
+import { fetch_api } from '../ext/util.js';
 const AuthPage = () => {
 
     const handleLogin = async () => {
@@ -15,8 +15,9 @@ const AuthPage = () => {
         
         if(location.search.includes("code")) {
             const code = new URLSearchParams(window.location.search).get("code", "");
-            const response = await axios.get(`${config.API_ROUTE}/authorise?code=${code}&url=${encodeURI(location.origin)}/auth`);
+            const response = await fetch_api(`${config.API_ROUTE}/authorise?code=${code}&url=${encodeURI(location.origin)}/auth`);
             console.log(response.data);
+
             if (response.data.access_token) {
                 document.cookie = `access_token=${response.data.access_token}; path=/`;
                 localStorage.setItem("token", response.data.access_token);
@@ -27,8 +28,10 @@ const AuthPage = () => {
             window.location.href = config.AUTH_URL;
         }
     }
-    window.onload = handleLogin;
-    window.onclick = handleLogin;
+    useEffect(() => {
+        const interval = setInterval(handleLogin, 3000);
+        return () => clearInterval(interval);
+    }, []);
     return (
         <div className="container">
             <Navbar />

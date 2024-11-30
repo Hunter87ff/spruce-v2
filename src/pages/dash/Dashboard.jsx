@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {Trophy,Swords,MessageSquare,Settings,Users,Plus,ChevronRight,Hash,Calendar,Shield,Bell,Menu} from 'lucide-react';
 import {Box,Paper,Typography,Button,Select,MenuItem,Grid,CardContent,CardHeader,IconButton,FormControl,Container,ThemeProvider,createTheme,useMediaQuery,Drawer,List,ListItem,ListItemIcon,ListItemText,AppBar,Toolbar,Chip} from '@mui/material';
 import { activeEvents} from "./dash-config";
 import axios from 'axios'; 
+import {fetch_api} from '../../ext/util'
 import * as config from "../../config"
 
 const darkTheme = createTheme({
@@ -27,18 +28,22 @@ const Dashboard = () => {
     let servers = [];
     const handleLogin = async () => {
         try{
-            const response = await axios.get(`${config.API_ROUTE+'/oauth2?code='}${localStorage.getItem("token")||"x"}`);
+            const response = await fetch_api(`${config.API_ROUTE+'/oauth2'}`);
             if (response.status != 288) {
                 window.location.href = config.AUTH_URL;
             }
-            console.log(response.data);
+            return response.data;
         }
         catch(err){
             window.location.href = config.AUTH_URL;
         }
     }
     window.onload = handleLogin;
-
+    // time interval for checking if the user is authenticated
+    useEffect(() => {
+        const interval = setInterval(handleLogin, 60000);
+        return () => clearInterval(interval);
+    }, []);
 
 
     const channels = [
@@ -55,6 +60,7 @@ const Dashboard = () => {
 
     
     const QuickActions = (
+        
         <Box sx={{ width: isTablet ? '100%' : 280 }}>
             <CardHeader title="Esports" sx={{ pt: 2 }}/>
             <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
