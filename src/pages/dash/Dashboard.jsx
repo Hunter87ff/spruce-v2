@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {Trophy,Swords,MessageSquare,Settings,Users,Plus,ChevronRight,Hash,Calendar,Shield,Bell,Menu} from 'lucide-react';
 import {Box,Paper,Typography,Button,Select,MenuItem,Grid,CardContent,CardHeader,IconButton,FormControl,Container,ThemeProvider,createTheme,useMediaQuery,Drawer,List,ListItem,ListItemIcon,ListItemText,AppBar,Toolbar,Chip} from '@mui/material';
 import { activeEvents} from "./dash-config";
-import axios from 'axios'; 
 import {fetch_api, getGuilds} from '../../ext/util'
 import * as config from "../../config"
 
