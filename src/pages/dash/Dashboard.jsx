@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {Trophy,Swords,MessageSquare,Settings,Users,Plus,ChevronRight,Hash,Calendar,Shield,Bell,Menu} from 'lucide-react';
 import {Box,Paper,Typography,Button,Select,MenuItem,Grid,CardContent,CardHeader,IconButton,FormControl,Container,ThemeProvider,createTheme,useMediaQuery,Drawer,List,ListItem,ListItemIcon,ListItemText,AppBar,Toolbar,Chip} from '@mui/material';
 import { activeEvents} from "./dash-config";
-import {fetch_api, getGuilds} from '../../ext/util'
+import {fetch_api, getGuilds, getAvatar} from '../../ext/util'
 import * as config from "../../config"
 
 const darkTheme = createTheme({
@@ -20,11 +20,12 @@ const darkTheme = createTheme({
 });
 
 const Dashboard = () => {
-    const [selectedServer, setSelectedServer] = useState("");
+    const [selectedServer, setSelectedServer] = useState("Select Server");
     const [mobileOpen, setMobileOpen] = useState(false);
     const isMobile = useMediaQuery(darkTheme.breakpoints.down('md'));
     const isTablet = useMediaQuery(darkTheme.breakpoints.down('lg'));
     const servers = localStorage.getItem("guilds") ? JSON.parse(localStorage.getItem("guilds")) : [];
+    const [avatar, setAvatar] = useState("/assets/img/logo/icon-192x192.png");
 
     // Load servers by calling await getGuilds using useeffect
     const handleLogin = async () => {
@@ -34,6 +35,8 @@ const Dashboard = () => {
                 localStorage.removeItem("guilds");
                 window.location.href = config.AUTH_URL;
             }
+            localStorage.setItem("user", JSON.stringify(response.data));
+            setAvatar(getAvatar(response.data.id, response.data.avatar));
             return response.data;
         }
         catch(err){
@@ -100,33 +103,37 @@ const Dashboard = () => {
     return (
         <ThemeProvider theme={darkTheme}>
             <Box sx={{display: 'flex',minHeight: '100vh',minWidth: isTablet?'100vw':'100%',background: 'linear-gradient(to bottom, #111827, #000000)'}}>
-                {/* App Bar */}
-                <AppBar position="fixed" sx={{ bgcolor: 'background.paper',  boxShadow: 'none', borderBottom: '1px solid rgba(255, 255, 255, 0.1)'}}>
+                /* App Bar */
+                <AppBar position="fixed" sx={{ bgcolor: 'background.paper', boxShadow: 'none', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
                     <Toolbar>
-                        <IconButton color="inherit"  edge="start"  onClick={handleDrawerToggle} sx={{ mr: 2, display: { lg: 'none' } }}>
+                        <IconButton color="inherit" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { lg: 'none' } }}>
                             <Menu />
                         </IconButton>
 
                         <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', gap: 2 }}>
-                            <Typography variant={isMobile ? "h6" : "h5"} sx={{ fontWeight: 'bold', background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: ''}}>
+                            <Typography variant={isMobile ? "h6" : "h5"} sx={{ fontWeight: 'bold', background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: '' }}>
                                 <Link to="/" className='font-bold'>Spruce</Link>
                             </Typography>
-                            <select className='bg-neutral-800 text-white border-transparent border hover:border-purple-700 px-2 py-2 rounded' onChange={(e) => setSelectedServer(e.target.value)}>
+                            <Select value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)} displayEmpty>
+                                <MenuItem value="" disabled>Select Server</MenuItem>
                                 {servers.map((server, index) => (
-                                    <option className='bg-transparent border border-purple-700 rounded px-4 py-2' key={index} value={server.id}>{server.name}</option>
+                                    <MenuItem key={index} value={server.id}>
+                                        {server.name}
+                                    </MenuItem>
                                 ))}
-                            </select>
+                            </Select>
                         </Box>
 
                         <Box sx={{ display: 'flex', gap: 1 }}>
                             <IconButton color="inherit" sx={{ display: { xs: 'flex', sm: 'none' } }}>
                                 <Bell size={20} />
                             </IconButton>
-                            <Button variant="contained" color="inherit" startIcon={<Bell size={20} />} sx={{ display: { xs: 'none', sm: 'flex' } }} > Notifications </Button>
-                            <IconButton color="primary" sx={{ display: { xs: 'flex', sm: 'none' } }}> 
+                            <Button variant="contained" color="inherit" startIcon={<Bell size={20} />} sx={{ display: { xs: 'none', sm: 'flex' } }}> Notifications </Button>
+                            <IconButton color="primary" sx={{ display: { xs: 'flex', sm: 'none' } }}>
                                 <Settings size={20} />
                             </IconButton>
                             <Button variant="contained" color="primary" startIcon={<Settings size={20} />} sx={{ display: { xs: 'none', sm: 'flex' } }}>Settings</Button>
+                            <img src={avatar} alt="Avatar" className="rounded-full h-8 w-8" />
                         </Box>
                     </Toolbar>
                 </AppBar>

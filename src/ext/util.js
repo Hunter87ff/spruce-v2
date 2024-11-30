@@ -35,3 +35,7 @@ export const getGuilds = async () => {
     }
     console.log(_guilds);
 }
+
+export const getAvatar = (user_id, hash, format="png") => {
+    return config.DISCORD_USER_AVATAR_BASE_URL.replace("{user_id}", user_id).replace("{avatar_hash}", hash).replace("{format}", format);
+}
