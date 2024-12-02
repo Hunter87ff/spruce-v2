@@ -34,6 +34,7 @@ app.use(limiter);
 app.use(helmet());
 app.use(cookieParser());
 
+
 app.get("/status", async (req, res) => {
     res.cookie('status', 'alive', { maxAge: 900000000, httpOnly: true });
     res.send({
