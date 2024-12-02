@@ -28,6 +28,7 @@ const limiter = rateLimit({
     max: 1000, // Limit each IP to 1000 requests per windowMs
 });
 
+//load extensions
 app.use(compression());
 app.use(limiter);
 app.use(helmet());
