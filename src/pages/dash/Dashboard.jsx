@@ -30,8 +30,8 @@ const Dashboard = () => {
     // Load servers by calling await getGuilds using useeffect
     const handleLogin = async () => {
         try{
-            const response = await fetch_api(`${config.API_ROUTE+'/oauth2'}`);
-            if (response.status != 288) {
+            const response = await fetch_api(`${'/api/auth/oauth2'}`);
+            if (response.status !== 200) {
                 localStorage.removeItem("guilds");
                 window.location.href = config.AUTH_URL;
             }

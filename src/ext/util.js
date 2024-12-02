@@ -11,7 +11,7 @@ export async function fetch_api(route, method="GET", data=null) {
     }
     let response = await axios({
         method: method,
-        url: `${config.API_ROUTE}${route.replace(config.API_ROUTE, "")}`,
+        url: `${route.replace(config.API_ROUTE, "")}`,
         data: data,
         headers: headers
     });
@@ -26,14 +26,13 @@ export const getGuilds = async () => {
     }
     
     else {
-        const response = await fetch_api(`${config.API_ROUTE+'/guilds'}`);
+        const response = await fetch_api(`/api/guild/guilds`);
         if (response.status == 200) {
             _guilds = response.data;
             localStorage.setItem("guilds", JSON.stringify(_guilds));
             return _guilds;
         }
     }
-    console.log(_guilds);
 }
 
 export const getAvatar = (user_id, hash, format="png") => {
