@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 
-//losd routes
+//load routes
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
 app.use(express.static(path.join(__dirname, 'dist')));
