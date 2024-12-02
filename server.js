@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 
-app.use(express.json());
+//losd routes
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -29,6 +29,7 @@ const limiter = rateLimit({
 });
 
 //load extensions
+app.use(express.json());
 app.use(compression());
 app.use(limiter);
 app.use(helmet());
