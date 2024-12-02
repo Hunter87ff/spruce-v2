@@ -1,4 +1,5 @@
 # Spruce V2
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Hunter87ff_spruce-v2&metric=ncloc)](#)
 
 ## Overview
 
