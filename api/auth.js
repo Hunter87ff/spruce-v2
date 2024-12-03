@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv';
 import axios from "axios";
-
+import {getCookie} from "./utils.js"
 
 dotenv.config();
 
@@ -82,7 +82,7 @@ auth.get("/logout", (_, res) => {
 
 
 auth.get("/oauth2", async (req, res) => {
-    const token = req.cookies?.token || RegExp('token=(.*?);').exec(req.headers.cookie)[1]
+    const token = req.cookies?.token || getCookie(req, 'token');
     if (!token) {
         return res.status(401).json({ error: 'Unauthorized: No token provided' });
     }
