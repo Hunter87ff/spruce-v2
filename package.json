@@ -19,7 +19,7 @@
     "compression": "^1.7.5",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.5",
-    "express": "^4.21.2",
+    "express": "^4.21.1",
     "express-rate-limit": "^7.4.1",
     "helmet": "^8.0.0",
     "lucide-react": "0.460.0",
