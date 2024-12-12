@@ -1,6 +1,5 @@
 import express from "express";
 import axios from "axios";
-import {getCookie} from "./utils.js";
 
 const guild = express.Router();
 
@@ -10,13 +9,13 @@ guild.get("/", (req, res) => {
 
 guild.get("/guilds", async (req, res) => {
     let _guilds = []
-    let _token = getCookie(req, "token");
+    let _token = req.cookies.token;
     if (!_token) {
         return res.status(401).json({"error": "Unauthorized"});
     }
     const _resp = await axios.get("https://discord.com/api/users/@me/guilds", {
         headers: {
-            'Authorization': `Bearer ${getCookie(req, "token")}`
+            'Authorization': `Bearer ${_token}`
         }
     });
     if (_resp.status == 200) {

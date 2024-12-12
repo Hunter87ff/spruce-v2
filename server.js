@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 
 // initialize express app
 const app = express();
-
+app.use(cookieParser());
 
 //load routes
 app.use("/api/guild", guild);
@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(compression());
 app.use(limiter);
 app.use(helmet());
-app.use(cookieParser());
+
 
 
 app.get("/status", async (req, res) => {

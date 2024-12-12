@@ -79,7 +79,7 @@ const Navbar = () => {
                     </div>
 
                     {/* CTA Button */}
-                    <Link to="/auth">
+                    <Link to="/dashboard">
                         <div className="hidden md:flex items-center">
                             <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
                                 Dashboard

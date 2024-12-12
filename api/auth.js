@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv';
 import axios from "axios";
-import {getCookie} from "./utils.js"
+
 
 dotenv.config();
 
@@ -63,8 +63,8 @@ auth.get("/callback", async (req, res) => {
             secure: true,
             sameSite: 'Strict'
         });
-        
-        return res.status(200).json({token: _token});
+        return res.status(200).redirect("/dashboard");
+        // return res.status(200).json({token: _token});
     }
     catch(err){
         return res.status(500).redirect(process.env.DISCORD_AUTH_URL)
@@ -82,7 +82,7 @@ auth.get("/logout", (_, res) => {
 
 
 auth.get("/oauth2", async (req, res) => {
-    const token = req.cookies?.token || getCookie(req, 'token');
+    const token = req.cookies?.token;
     if (!token) {
         return res.status(401).json({ error: 'Unauthorized: No token provided' });
     }
