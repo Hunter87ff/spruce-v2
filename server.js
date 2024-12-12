@@ -14,25 +14,24 @@ const __dirname = path.dirname(__filename);
 
 // initialize express app
 const app = express();
+const limiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    max: 1000, // Limit each IP to 1000 requests per windowMs
+});
+
+//load extensions
 app.use(cookieParser());
+app.use(express.json());
+app.use(compression());
+app.use(limiter);
+app.use(helmet());
+
 
 //load routes
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static('public', { maxAge: '1d' }));
-
-
-const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 1 minutes
-    max: 1000, // Limit each IP to 1000 requests per windowMs
-});
-
-//load extensions
-app.use(express.json());
-app.use(compression());
-app.use(limiter);
-app.use(helmet());
 
 
 

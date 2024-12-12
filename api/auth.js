@@ -92,6 +92,14 @@ auth.get("/oauth2", async (req, res) => {
             'Authorization': `Bearer ${token}`
         }
     });
+    if(_resp.status == 200){
+        res.cookie('token', req.cookies.token, {
+            maxAge: 900000000, 
+            httpOnly: true, 
+            secure: true,
+            sameSite: 'Strict'
+        });
+    }
     return res.status(_resp.status).json(_resp.data);
 });
 
