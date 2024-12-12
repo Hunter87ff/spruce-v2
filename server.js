@@ -15,7 +15,6 @@ const __dirname = path.dirname(__filename);
 // initialize express app
 const app = express();
 
-
 //load routes
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
