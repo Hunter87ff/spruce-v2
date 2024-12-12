@@ -1,6 +1,7 @@
 {
   "name": "spruce-v2",
   "private": true,
+  "main" : "server.js",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
