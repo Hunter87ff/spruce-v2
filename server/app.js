@@ -43,7 +43,7 @@ const __dirname = path.dirname(__filename);
 
 // initialize express app
 const app = express();
-
+app.set('trust proxy', 1);
 
 
 //load extensions
