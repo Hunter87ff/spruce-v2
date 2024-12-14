@@ -1,12 +1,12 @@
 {
   "name": "spruce-v2",
   "private": true,
-  "main": "server.js",
+  "main": "server/app.js",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dep": "vite build && node server.js",
+    "dep": "vite build && cd serber && node app.js",
     "dev": "vite --host --port 3000",
     "build": "vite build",
     "lint": "eslint .",

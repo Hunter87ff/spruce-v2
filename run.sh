@@ -1,1 +1,1 @@
-NODE_ENV=production node server.js
+NODE_ENV=production && cd server && node app.js

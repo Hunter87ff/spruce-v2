@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url';
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import compression from "compression";
-import rateLimit from "express-rate-limit";
 import {configDotenv } from "dotenv";
 import { MongoClient, ServerApiVersion } from 'mongodb';
 configDotenv();
@@ -33,7 +32,7 @@ async function setEnv() {
     } finally {
         await client.close();
     }
-    // console.log(process.env)
+    console.log("Env Configured!!");
 }
 setEnv().catch(console.dir);
 
@@ -44,25 +43,21 @@ const __dirname = path.dirname(__filename);
 
 // initialize express app
 const app = express();
-const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 1000, // Limit each IP to 1000 requests per windowMs
-});
+
 
 
 //load extensions
 app.use(cookieParser());
 app.use(express.json());
 app.use(compression());
-app.use(limiter);
 app.use(helmet());
 
 
 //load routes
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
-app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static('public', { maxAge: '1d' }));
+app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static('../public', { maxAge: '1d' }));
 
 
 
@@ -79,7 +74,7 @@ app.get("/status", async (req, res) => {
 
 // route react app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
   });
 
 app.listen(3001, () => {

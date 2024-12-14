@@ -1,7 +1,18 @@
 import express from "express";
 import axios from "axios";
+import rateLimit from "express-rate-limit";
+
 
 const guild = express.Router();
+
+const limiter = rateLimit({
+    windowMs: 5 * 60 * 1000, // 10 minutes
+    max: 1000, // Limit each IP to 1000 requests per windowMs
+});
+
+//  adding limiter to all requests
+guild.use(limiter);
+
 
 guild.get("/", (req, res) => {
   res.send({"message": "Guild API is alive!"});
