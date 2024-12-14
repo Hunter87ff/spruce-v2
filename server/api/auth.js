@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv';
 import axios from "axios";
-
+import {getAuthUrl, getCallbackUrl} from "./utils.js";
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ auth.get("/status", (_, res) => {
 
 auth.get("/login", (_, res) => {
     // redirect to discord login page
-    res.redirect(process.env.DISCORD_AUTH_URL);
+    res.redirect(getAuthUrl(_));
 });
 
 
@@ -22,7 +22,7 @@ auth.get("/login", (_, res) => {
  * @param {string} code - The authorization code received from Discord
  * @returns {Promise<string>} - Returns the access token
  */
-async function getAccessToken(code) {
+async function getAccessToken(req) {
     const tokenURL = 'https://discord.com/api/oauth2/token';
 
     try {
@@ -30,8 +30,8 @@ async function getAccessToken(code) {
             client_id: process.env.CLIENT_ID,
             client_secret: process.env.CLIENT_SECRET,
             grant_type: 'authorization_code',
-            code: code,
-            redirect_uri: process.env.CALLBACK,
+            code: req.query.code,
+            redirect_uri: req.protocol + '://' + req.headers.host + "/api/auth/callback",
         });
 
         const response = await axios.post(tokenURL, params.toString(), {
@@ -56,7 +56,7 @@ async function getAccessToken(code) {
 auth.get("/callback", async (req, res) => {
     let _token;
     try{
-        _token = await getAccessToken(req.query.code);
+        _token = await getAccessToken(req);
         res.cookie('token', _token, {
             maxAge: 900000000, 
             httpOnly: true, 

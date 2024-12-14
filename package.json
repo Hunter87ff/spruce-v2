@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dep": "vite build && cd serber && node app.js",
+    "dep": "vite build && cd server && node app.js",
     "dev": "vite --host --port 3000",
     "build": "vite build",
     "lint": "eslint .",

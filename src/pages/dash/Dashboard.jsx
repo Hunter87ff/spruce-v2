@@ -24,14 +24,15 @@ const Dashboard = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const isMobile = useMediaQuery(darkTheme.breakpoints.down('md'));
     const isTablet = useMediaQuery(darkTheme.breakpoints.down('lg'));
-    const servers = localStorage.getItem("guilds") ? JSON.parse(localStorage.getItem("guilds")) : [];
+    let [servers, setServers] = useState(localStorage.getItem("guilds") ? JSON.parse(localStorage.getItem("guilds")) : []);
     const [avatar, setAvatar] = useState("/assets/img/logo/icon-192x192.png");
 
     // Load servers by calling await getGuilds using useeffect
     const handleLogin = async () => {
+        const validStatus = [200, 201, 204, 304];
         try{
             const response = await fetch_api(`${'/api/auth/oauth2'}`);
-            if (response.status !== 200) {
+            if (!validStatus.includes(response.status)) {
                 localStorage.removeItem("guilds");
                 window.location.href = config.AUTH_URL;
             }
@@ -44,19 +45,27 @@ const Dashboard = () => {
         }
     }
 
-    async function manageHooks(){
-        // localStorage.removeItem("guilds");
-        await handleLogin();
-        await getGuilds();
-    }
-
-    window.onload = manageHooks;
-
+    // load guilds 
+    useEffect(() => {
+        const loadGuilds = async () => {
+            let _guilds = await getGuilds();
+            if (_guilds.length > 0) {
+                setServers(_guilds);
+                setSelectedServer(_guilds[0].id);
+            }
+            localStorage.setItem("guilds", JSON.stringify(_guilds));
+        };
+        loadGuilds();
+    }, []);
 
 
     // time interval for checking if the user is authenticated
     useEffect(() => {
-        const interval = setInterval(handleLogin, 60000);
+        const login = async () => {
+            await handleLogin();
+        };
+        login();
+        const interval = setInterval(login, 30000);
         return () => clearInterval(interval);
     }, []);
 
