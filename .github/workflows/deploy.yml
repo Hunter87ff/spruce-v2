@@ -37,9 +37,10 @@ jobs:
 
     - name: Setup Deploy
       run: |
-        sudo ./run.sh
-      #vite build
-      # pm2 start server/app.js -i 4
+        NODE_ENV=production
+        vite build
+        pm2 start server/app.js -i 4
+        cd server && node app.js
 
       working-directory: ./ 
 
