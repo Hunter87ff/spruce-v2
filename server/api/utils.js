@@ -19,3 +19,7 @@ export function getAuthUrl(req) {
 export function getCallbackUrl(req) {
     return req.protocol + '://' + req.headers.host + "/api/auth/callback";
 }
+
+export function getAvatarUrl(user) {
+    return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+}

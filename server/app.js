@@ -1,6 +1,7 @@
 import express from "express";
 import guild from "./api/guild.js";
 import auth from "./api/auth.js";
+import avatar from "./api/avatar.js";
 import path from "path";
 import { fileURLToPath } from 'url';
 import helmet from "helmet";
@@ -56,6 +57,7 @@ app.use(helmet());
 //load routes
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
+app.use("/api/avatar", avatar);
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(express.static('../public', { maxAge: '1d' }));
 

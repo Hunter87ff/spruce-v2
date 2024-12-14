@@ -38,8 +38,7 @@ jobs:
     - name: Setup Deploy
       run: |
         NODE_ENV=production
-        vite build
-        cd server && node app.js
+        npm run dep
       # pm2 start server/app.js -i 4
       working-directory: ./ 
 
