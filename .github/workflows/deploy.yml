@@ -39,9 +39,8 @@ jobs:
       run: |
         NODE_ENV=production
         vite build
-      # pm2 start server/app.js -i 4
         cd server && node app.js
-
+      # pm2 start server/app.js -i 4
       working-directory: ./ 
 
  
