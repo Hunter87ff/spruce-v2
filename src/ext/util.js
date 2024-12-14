@@ -38,5 +38,4 @@ export const getGuilds = async () => {
 export const getAvatar = (user_id, hash, format="png") => {
     // /api/avatar/user/885193210455011369/2b8b94d68a86901c0ba39565c1e428f6
     return `/api/avatar/user/${user_id}/${hash}`;
-    return config.DISCORD_USER_AVATAR_BASE_URL.replace("{user_id}", user_id).replace("{avatar_hash}", hash).replace("{format}", format);
 }
