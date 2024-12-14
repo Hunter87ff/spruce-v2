@@ -28,7 +28,7 @@ async function getAccessToken(code) {
     try {
         const params = new URLSearchParams({
             client_id: process.env.CLIENT_ID,
-            client_secret: process.env.CSECRET,
+            client_secret: process.env.CLIENT_SECRET,
             grant_type: 'authorization_code',
             code: code,
             redirect_uri: process.env.CALLBACK,
@@ -67,7 +67,7 @@ auth.get("/callback", async (req, res) => {
         // return res.status(200).json({token: _token});
     }
     catch(err){
-        return res.status(500).redirect(process.env.DISCORD_AUTH_URL)
+        return res.status(500).redirect("/login");
     }
 });
 

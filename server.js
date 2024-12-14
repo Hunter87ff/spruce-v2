@@ -7,10 +7,40 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import compression from "compression";
 import rateLimit from "express-rate-limit";
+import {configDotenv } from "dotenv";
+import { MongoClient, ServerApiVersion } from 'mongodb';
+configDotenv();
+
+
+// fetch data from mongo db and set it to env
+async function setEnv() {
+    const MongoUri = process.env.MONGO_URI;
+    const client = new MongoClient(MongoUri, {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true,
+        }
+    });
+    try {
+        await client.connect();
+        let db = client.db("configdb");
+        let collection = db.collection("configdbc");
+        let _data = await collection.findOne({ config_id: 30 });
+        for (let key in _data) {
+            process.env[key.toUpperCase()] = _data[key];
+        }
+    } finally {
+        await client.close();
+    }
+    // console.log(process.env)
+}
+setEnv().catch(console.dir);
 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 
 // initialize express app
 const app = express();
@@ -18,6 +48,7 @@ const limiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
     max: 1000, // Limit each IP to 1000 requests per windowMs
 });
+
 
 //load extensions
 app.use(cookieParser());
@@ -54,3 +85,6 @@ app.get('*', (req, res) => {
 app.listen(3001, () => {
     console.log("Server is running on port 3001");
 });
+
+
+
