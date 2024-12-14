@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-  #workflow_dispatch:
-  #schedule:
-   # - cron: '0 */6 * * *'
+  workflow_dispatch:
+  schedule:
+   - cron: '0 */6 * * *'
     
 permissions:
   contents: read
