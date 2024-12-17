@@ -8,6 +8,7 @@
     "start": "vite",
     "dep": "vite build && cd server && node app.js",
     "dev": "vite --host --port 3000",
+    "prod" : "vite build && cd server && pm2 start app.js -i 1 --name 'spruce'",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
