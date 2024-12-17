@@ -38,7 +38,7 @@ jobs:
     - name: Setup Deploy
       run: |
         NODE_ENV=production
-        npm run dep
+        ./run.sh
       # pm2 start server/app.js -i 4
       working-directory: ./ 
 
