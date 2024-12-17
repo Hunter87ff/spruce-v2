@@ -1,6 +1,6 @@
 import { ChevronRight } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../components/Navbar.jsx';
+import Footer from '../components/Footer.jsx';
 import { features } from '../ext/constant.jsx';
 import configs from "../ext/config.json";
 
