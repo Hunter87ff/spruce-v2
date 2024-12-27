@@ -51,7 +51,23 @@ app.set('trust proxy', 1);
 app.use(cookieParser());
 app.use(express.json());
 app.use(compression());
-app.use(helmet());
+
+// security headers
+app.use(helmet({
+    contentSecurityPolicy: { 
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'",  "https://cdn.jsdelivr.net/", "https://static.cloudflareinsights.com/"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net/"],
+            imgSrc: ["'self'", "data:", "https://lh3.googleusercontent.com/"],
+            connectSrc: ["'self'"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com"],
+            objectSrc: ["'none'"],
+            mediaSrc: ["'none'"],
+            frameSrc: ["'none'"],
+        }
+    }
+}));
 
 
 //load routes
