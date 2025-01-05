@@ -1,13 +1,13 @@
-import NewNav from '../components/NewNav.jsx';
+import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import { features } from '../ext/constant.jsx';
-import { Link } from 'react-router-dom';
+
 
 const Home = () => {
     return (
         <div className="min-h-screen w-screen bg-gradient-to-b from-gray-900 to-black text-white" id=''>
             {/* Hero Section */}
-            <NewNav />
+            <Navbar />
             <section id="hero" class="bg-neutral-900 min-h-[70vh] pt-16">
                 {/* Main Landing... */}
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
@@ -17,7 +17,7 @@ const Home = () => {
                                 Level Up Your <span class="text-emerald-500">Esports Tournament</span> Management
                             </h1>
                             <p class="text-gray-400 text-lg md:text-xl max-w-lg">
-                            The Ultimate Esports Discord App for Tournament Management and Server Administration
+                            The Ultimate Esports Discord Bot for Tournament Management and Server Administration
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <button
@@ -85,7 +85,7 @@ const Home = () => {
             {/* Features Section */}
             <section id="features" class="bg-neutral-800 py-20 px-10">
                 {/* Features */}
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
                     <div class="text-center mb-16 animate__animated animate__fadeIn">
                         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Spruce Provides</h2>
                         <p class="text-gray-400 max-w-2xl mx-auto">Everything you need to manage your esports community.</p>
@@ -93,14 +93,10 @@ const Home = () => {
 
                     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 *:z-10">
                         {features.map((val, index) => (
-                            <div
+                            <div key={index}
                                 class="bg-neutral-700 rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp">
                                 <div class="h-12 w-12 bg-emerald-500 rounded-lg flex items-center justify-center mb-4">
-                                    <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
-                                        </path>
-                                    </svg>
+                                    {val.icon}
                                 </div>
                                 <h3 class="text-xl font-semibold text-white mb-2">{val.title}</h3>
                                 <p class="text-gray-400">{val.description}

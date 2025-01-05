@@ -3,32 +3,32 @@ import configs from './config.json';
 
 export const features = [
     {
-      icon: <Trophy className="w-6 h-6 text-indigo-500" />,
+      icon: <Trophy className="w-6 h-6 " />,
       title: "Tournament Management",
       description: "Organize and manage esports tournaments with ease. Create tournaments, assign role, and manage groups seamlessly."
     },
     {
-      icon: <Command className="w-6 h-6 text-indigo-500" />,
+      icon: <Command className="w-6 h-6 " />,
       title: "Scrim Management",
       description: "Schedule and coordinate practice matches. Find scrims, manage teams, and track performance."
     },
     {
-      icon: <Music className="w-6 h-6 text-indigo-500" />,
+      icon: <Music className="w-6 h-6 " />,
       title: "Music System",
       description: "High-quality music playback with playlist support, queue management, and filters."
     },
     {
-      icon: <Shield className="w-6 h-6 text-indigo-500" />,
+      icon: <Shield className="w-6 h-6 " />,
       title: "Moderation Tools",
       description: "Keep your server safe with advanced moderation features including auto-mod, warning system, and detailed logs."
     },
     {
-      icon: <Users className="w-6 h-6 text-indigo-500" />,
+      icon: <Users className="w-6 h-6 " />,
       title: "Role Management",
       description: "Automated role assignment, custom role menus, and advanced permission management."
     },
     {
-      icon: <Ticket className="w-6 h-6 text-indigo-500" />,
+      icon: <Ticket className="w-6 h-6 " />,
       title: "Ticketing System",
       description: "Handle support requests efficiently with an advanced ticketing system including categories and staff management."
     }
