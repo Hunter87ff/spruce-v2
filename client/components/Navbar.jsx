@@ -19,7 +19,7 @@ const Newbar = () => {
 
                     <div className="flex-shrink-0">
                         <Link to={'/'}>
-                        <span className="text-2xl font-bold text-emerald-500 cursor-pointer">Spruce</span>
+                            <span className="text-2xl font-bold text-emerald-500 cursor-pointer">Spruce</span>
                         </Link>
                     </div>
 
@@ -28,8 +28,9 @@ const Newbar = () => {
                             {links.map((val, index) => (
                                 <a href={val.url} key={index} className="text-gray-300 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">{val.text}</a>
                             ))}
-
-                            <button className="bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition-colors">{_onboard_text}</button>
+                            <Link to={'/dashboard'}>
+                                <button className="bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition-colors">{_onboard_text}</button>
+                            </Link>
                         </div>
                     </div>
 
