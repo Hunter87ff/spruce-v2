@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "start": "vite --host --port 3000",
     "dep": "vite build && cd server && node app.js",
     "dev": "vite --host --port 3000",
     "prod" : "vite build && cd server && pm2 start app.js -i 4 --name 'spruce'",

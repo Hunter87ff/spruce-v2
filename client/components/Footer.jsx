@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900/80 backdrop-blur-lg border-t border-gray-800">
+        <footer className="bg-gray-900/80 backdrop-blur-lg border-t border-gray-800 ">
             <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-16 pb-8">
                 {/* Main footer content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -15,7 +15,7 @@ const Footer = () => {
                     <div className="lg:col-span-2">
                         <div className="flex items-center mb-4">
                             {/* <Bot className="h-8 w-8 text-indigo-500 mr-2" /> */}
-                            <Link to={"/"} className="text-2xl font-bold text-white">Spruce</Link>
+                            <Link to={"/"} className="text-2xl font-bold text-emerald-500">Spruce</Link>
                         </div>
                         <p className="text-gray-400 mb-6 max-w-md">
                             Elevate your Discord server with the most comprehensive esports and community management bot. Built for competitive gaming communities.
@@ -40,7 +40,7 @@ const Footer = () => {
                             <ul className="space-y-2">
                                 {section.links.map((link, index) => (
                                     <li key={index}>
-                                        <Link to={`${link.url}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                                        <Link to={`${link.url}`} className="text-gray-400 hover:text-emerald-500 transition-colors text-sm">
                                             {link.name}
                                         </Link>
                                     </li>
@@ -53,8 +53,8 @@ const Footer = () => {
                 {/* Stats bar */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-t border-gray-800 *:cursor-pointer">
                     <div className="text-center">
-                        <p className="text-3xl font-bold text-white">500+</p>
-                        <p className="text-gray-400 text-sm">Active Servers</p>
+                        <p className="text-3xl font-bold text-white">800+</p>
+                        <p className="text-gray-400 text-sm">Servers</p>
                     </div>
                     <div className="text-center">
                         <p className="text-3xl font-bold text-white">300+</p>
@@ -65,7 +65,7 @@ const Footer = () => {
                         <p className="text-gray-400 text-sm">Commands Used</p>
                     </div>
                     <div className="text-center">
-                        <p className="text-3xl font-bold text-white">99%</p>
+                        <p className="text-3xl font-bold text-white">98%</p>
                         <p className="text-gray-400 text-sm">Uptime</p>
                     </div>
                 </div>
