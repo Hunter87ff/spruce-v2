@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Twitter, Github, Heart } from 'lucide-react';
+import { Twitter, Github, Heart } from 'lucide-react';
 import { DiscordIcon } from '../../ext/icons.jsx';
 import { footerSections } from '../../ext/constant.jsx';
 import configs from "../../ext/config.json";

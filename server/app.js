@@ -80,10 +80,8 @@ app.use(express.static('../public', { maxAge: '30d' }));
 
 
 app.get("/status", async (req, res) => {
-    res.cookie('status', 'alive', { maxAge: 900000000, httpOnly: true });
     res.send({
         "message": "alive!!",
-        "head": req.headers.cookie
     });
 });
 

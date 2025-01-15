@@ -51,7 +51,7 @@ export const footerSections = {
         links: [
             { name: 'Documentation', url: '#' },
             { name: 'Status', url: '#' },
-            { name: 'Change Log', url: '#' },
+            { name: 'Change Log', url: 'https://github.com/Hunter87ff/Spruce/releases' },
             { name: 'Blog', url: '#' }
         ]
     },
@@ -61,7 +61,7 @@ export const footerSections = {
             { name: 'About Us', url: '/about' },
             { name: 'Terms of Service', url: '/terms' },
             { name: 'Privacy Policy', url: '/privacy' },
-            { name: 'Contact', url: '#' }
+            { name: 'Contact', url: '/contact' }
         ]
     },
     support: {
@@ -69,7 +69,6 @@ export const footerSections = {
         links: [
             { name: 'Help Center', url: configs.SUPPORT_SERVER },
             { name: 'Community', url: configs.SUPPORT_SERVER },
-            { name: 'Server Templates', url: '#' },
             { name: 'FAQ', url: '#' },
         ]
     }
