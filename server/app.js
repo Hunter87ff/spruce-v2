@@ -1,13 +1,13 @@
 import express from "express";
 import guild from "./api/guild.js";
 import auth from "./api/auth.js";
-import avatar from "./api/avatar.js";
 import path from "path";
 import { fileURLToPath } from 'url';
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import compression from "compression";
 import {configDotenv } from "dotenv";
+import {redirect_pages} from "./middlewares/redirect.js";
 import { MongoClient, ServerApiVersion } from 'mongodb';
 configDotenv();
 
@@ -51,6 +51,8 @@ app.set('trust proxy', 1);
 app.use(cookieParser());
 app.use(express.json());
 app.use(compression());
+app.use(redirect_pages);
+
 
 // security headers
 app.use(helmet({
@@ -73,7 +75,6 @@ app.use(helmet({
 //load routes
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
-app.use("/api/avatar", avatar);
 app.use(express.static(path.join(__dirname, '../dist'), { maxAge: '30d' }));
 app.use(express.static('../public', { maxAge: '30d' }));
 
