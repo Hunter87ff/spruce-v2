@@ -92,6 +92,7 @@ app.get("/status", async (req, res) => {
 
 // route react app
 app.get('*', (req, res) => {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
     res.sendFile(path.join(__dirname, '../dist', 'index.html'));
   });
 
