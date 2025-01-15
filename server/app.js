@@ -58,7 +58,7 @@ app.use(helmet({
         directives: {
             defaultSrc: ["'self'"],
             scriptSrc: ["'self'", "'unsafe-inline'"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
             imgSrc: ["'self'", "data:", "https://lh3.googleusercontent.com/", "https://cdn.discordapp.com/"],
             connectSrc: ["'self'"],
             fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com/"],
@@ -74,8 +74,8 @@ app.use(helmet({
 app.use("/api/guild", guild);
 app.use("/api/auth", auth);
 app.use("/api/avatar", avatar);
-app.use(express.static(path.join(__dirname, '../dist')));
-app.use(express.static('../public', { maxAge: '1d' }));
+app.use(express.static(path.join(__dirname, '../dist'), { maxAge: '30d' }));
+app.use(express.static('../public', { maxAge: '30d' }));
 
 
 
