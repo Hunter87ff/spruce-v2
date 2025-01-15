@@ -1,13 +1,13 @@
 import React from 'react';
 import { Bot, Twitter, Github, Heart } from 'lucide-react';
-import { DiscordIcon } from '../ext/icons.jsx';
-import { footerSections } from '../ext/constant.jsx';
-import configs from "../ext/config.json";
+import { DiscordIcon } from '../../ext/icons.jsx';
+import { footerSections } from '../../ext/constant.jsx';
+import configs from "../../ext/config.json";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900/80 backdrop-blur-lg border-t border-gray-800 ">
+        <footer className="bg-gray-900 backdrop-blur-lg border-t border-gray-800 ">
             <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-16 pb-8">
                 {/* Main footer content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Loader2, Bot } from 'lucide-react';
 
-import * as config from '../config.js';
-import Navbar from '../components/Navbar.jsx';
-import { fetch_api } from '../ext/util.js';
+import * as config from '../../config.js';
+import Navbar from '../../components/Navbar.jsx';
+import { fetch_api } from '../../ext/util.js';
 const AuthPage = () => {
 
     const handleLogin = async () => {

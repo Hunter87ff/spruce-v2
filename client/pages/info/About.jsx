@@ -1,6 +1,6 @@
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import configs from "../ext/config.json";
+import Navbar from '../../components/block/Navbar';
+import Footer from '../../components/block/Footer';
+import configs from "../../ext/config.json";
 
 
 const About = () => {

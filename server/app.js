@@ -57,11 +57,11 @@ app.use(helmet({
     contentSecurityPolicy: { 
         directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'",  "https://cdn.jsdelivr.net/", "https://static.cloudflareinsights.com/"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net/"],
-            imgSrc: ["'self'", "data:", "https://lh3.googleusercontent.com/"],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            imgSrc: ["'self'", "data:", "https://lh3.googleusercontent.com/", "https://cdn.discordapp.com/"],
             connectSrc: ["'self'"],
-            fontSrc: ["'self'", "https://fonts.gstatic.com"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com/"],
             objectSrc: ["'none'"],
             mediaSrc: ["'none'"],
             frameSrc: ["'none'"],

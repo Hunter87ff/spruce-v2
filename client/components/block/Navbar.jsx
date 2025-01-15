@@ -6,8 +6,8 @@ const Newbar = () => {
     const links = [
         { text: "Home", url: "/" },
         { text: "Tournaments", url: "#" },
-        { text: "Features", url: "#features" },
-        { text: "Pricing", url: "#" },
+        { text: "Features", url: "/#features" },
+        { text: "Pricing", url: "/pricing" },
     ]
 
     const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +39,7 @@ const Newbar = () => {
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                             <span className="sr-only">Open main menu</span>
                             <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>

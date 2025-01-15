@@ -1,61 +1,82 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
+<html lang="en" class="html">
+
+<head>
     <title>Spruce</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg" href="spruce.svg" />
 
     <!--[ Meta for browser ]-->
-    <meta charset='UTF-8'/>
-    <meta content='width=device-width, initial-scale=1, minimum-scale=1' name='viewport'/> 
-    <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
-    <meta content='yes' name='apple-mobile-web-app-capable'/>
-    <meta content='yes' name='mobile-web-app-capable'/>
-    <meta content='yes' name='apple-mobile-web-app-status-bar-style'/>
-    <meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'/>
+    <meta charset='UTF-8' />
+    <meta content='width=device-width, initial-scale=1, minimum-scale=1' name='viewport' />
+    <meta content='IE=edge' http-equiv='X-UA-Compatible' />
+    <meta content='yes' name='apple-mobile-web-app-capable' />
+    <meta content='yes' name='mobile-web-app-capable' />
+    <meta content='yes' name='apple-mobile-web-app-status-bar-style' />
+    <meta content='black-translucent' name='apple-mobile-web-app-status-bar-style' />
 
     <!-- Discord Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: *.discordapp.com *.discord.com;">
 
     <!-- META DETAILS, SEO CONFIGURATION -->
-    <meta content='Spruce' property='og:title'/>
-    <meta content='website' property='og:type'/>
-    <meta content='https://sprucbot.tech' property='og:url'/>
-    <meta content='Spruce' property='og:site_name'/>
-    <meta content='Spruce Bot, Everything you needed to manage Esport Tournaments' name='description'/>
-    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot' name='keywords'/>
-	
-    
-	<!--[ Open graph ]-->
-	<meta content='Spruce Bot' property='og:title'/>
-	<meta content='https://sprucbot.tech' property='og:url'/>
-	<meta content='Spruce Bot' property='og:site_name'/>
-	<meta content='website' property='og:type'/>
-	<meta content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.' property='og:description'/>
-    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot' name='keywords'/>
-	<meta content='Spruce Bot' property='og:image:alt'/>
+    <meta content='Spruce' property='og:title' />
+    <meta content='website' property='og:type' />
+    <meta content='https://sprucbot.tech' property='og:url' />
+    <meta content='Spruce' property='og:site_name' />
+    <meta content='Spruce Bot, Everything you needed to manage Esport Tournaments' name='description' />
+    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot'
+        name='keywords' />
 
-	<!--[ Twitter Card ]-->
-	<meta content='Spruce Bot' name='twitter:title'/>
-	<meta content='https://sprucbot.tech' name='twitter:url'/>
-	<meta content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.' name='twitter:description'/>
-	<meta content='' name='twitter:card'/>
-	<meta content='Spruce Bot' name='twitter:image:alt'/>
+
+    <!--[ Open graph ]-->
+    <meta content='Spruce Bot' property='og:title' />
+    <meta content='https://sprucbot.tech' property='og:url' />
+    <meta content='Spruce Bot' property='og:site_name' />
+    <meta content='website' property='og:type' />
+    <meta
+        content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.'
+        property='og:description' />
+    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot'
+        name='keywords' />
+    <meta content='Spruce Bot' property='og:image:alt' />
+
+    <!--[ Twitter Card ]-->
+    <meta content='Spruce Bot' name='twitter:title' />
+    <meta content='https://sprucbot.tech' name='twitter:url' />
+    <meta
+        content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.'
+        name='twitter:description' />
+    <meta content='' name='twitter:card' />
+    <meta content='Spruce Bot' name='twitter:image:alt' />
 
     <!-- Manifest -->
     <link rel="manifest" href="assets/manifest.json" />
 
+    <style>
+        /* Loading page animation  */
+        .loader {  position: relative;  width: 120px;  height: 90px;  margin: 0 auto; } .loader:before {  content: "";  position: absolute;  bottom: 30px;  left: 50px;  height: 30px;  width: 30px;  border-radius: 50%;  background: #FF3D00;  animation: loading-bounce 0.5s ease-in-out infinite alternate; } .loader:after {  content: "";  position: absolute;  right: 0;  top: 0;  height: 7px;  width: 45px;  border-radius: 4px;  box-shadow: 0 5px 0 #fff, -35px 50px 0 #fff, -70px 95px 0 #fff;  animation: loading-step 1s ease-in-out infinite; } @keyframes loading-bounce {  0% { transform: scale(1, 0.7)}  40% { transform: scale(0.8, 1.2)}  60% { transform: scale(1, 1)}  100% { bottom: 140px } } @keyframes loading-step {  0% {   box-shadow: 0 10px 0 rgba(0,0,0,0),  0 10px 0 #fff, -35px 50px 0 #fff,  -70px 90px 0 #fff;  }  100% {box-shadow: 0 10px 0 #fff, -35px 50px 0 #fff, -70px 90px 0 #fff, -70px 90px 0 rgba(0,0,0,0);} }
+            
+        /* custom scrollbar */
+        html::-webkit-scrollbar{z-index: 1;}
+        .html{scrollbar-width: thin; scrollbar-color: #0c5361 #080101;scroll-behavior: smooth;overflow-x: hidden; }
+        @media screen and (max-width: 680px) {.html{scrollbar-width: none;}}
+        ::-webkit-scrollbar {  width: 10px; } ::-webkit-scrollbar-track {  background: #f1f1f1; } ::-webkit-scrollbar-thumb {  background: #888; } ::-webkit-scrollbar-thumb:hover {  background: #200889; }
+    </style>
 
+    <!-- Preload Fonts -->
     <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
-    as="style">
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        as="style">
     <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  </head>
-  <body>
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
     <div id="root"></div>
     <script type="module" src="client/main.jsx"></script>
-  </body>
+</body>
+
 </html>
