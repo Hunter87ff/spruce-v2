@@ -54,9 +54,9 @@ const Newbar = () => {
                             className="text-gray-300 hover:text-emerald-500 block px-3 py-2 rounded-md text-base font-medium">{val.text}</a>
 
                     ))}
-
-                    <button
-                        className="w-full bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition-colors mt-4">Dashboard</button>
+                    <Link to={'/dashboard'}>
+                        <button className="w-full bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition-colors mt-4">Dashboard</button>
+                    </Link>
                 </div>
             </div>
         </nav>

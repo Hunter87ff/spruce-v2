@@ -1,13 +1,13 @@
 import express from "express";
 import axios from "axios";
-import {getAuthUrl, getCallbackUrl} from "./utils.js";
+import { getAuthUrl } from "./utils.js";
 import { creds } from "../config.js";
-
+import { getAvatarUrl } from "./utils.js";
 
 const auth = express.Router();
 
 auth.get("/status", (_, res) => {
-  res.send({"auth": "auth loaded and working!!"});
+    res.send({ "auth": "auth loaded and working!!" });
 });
 
 auth.get("/login", (_, res) => {
@@ -32,7 +32,7 @@ async function getAccessToken(req) {
             code: req.query.code,
             redirect_uri: req.protocol + '://' + req.headers.host + "/api/auth/callback",
         });
-        
+
         const response = await axios.post(tokenURL, params.toString(), {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -51,18 +51,18 @@ async function getAccessToken(req) {
 
 auth.get("/callback", async (req, res) => {
     let _token;
-    try{
+    try {
         _token = await getAccessToken(req);
         res.cookie('token', _token, {
-            maxAge: 900000000, 
-            httpOnly: true, 
+            maxAge: 900000000,
+            httpOnly: true,
             secure: true,
             sameSite: 'Strict'
         });
         return res.status(200).redirect("/dashboard");
         // return res.status(200).json({token: _token});
     }
-    catch(err){
+    catch (err) {
         return res.status(500).redirect("/login");
     }
 });
@@ -82,21 +82,21 @@ auth.get("/oauth2", async (req, res) => {
     if (!token) {
         return res.status(401).json({ error: 'Unauthorized: No token provided' });
     }
-    
+
     const _resp = await axios.get("https://discord.com/api/users/@me", {
         headers: {
             'Authorization': `Bearer ${token}`
         }
     });
-    if(_resp.status == 200){
+    if (_resp.status == 200) {
         res.cookie('token', req.cookies.token, {
-            maxAge: 900000000, 
-            httpOnly: true, 
+            maxAge: 900000000,
+            httpOnly: true,
             secure: true,
             sameSite: 'Strict'
         });
     }
-    return res.status(_resp.status).json(_resp.data);
+    return res.status(200).json(_resp.data);
 });
 
 
