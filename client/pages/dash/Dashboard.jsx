@@ -14,8 +14,8 @@ const Dashboard = () => {
     const [selectedServer, setSelectedServer] = useState('Spruce Gaming');
     const [AvatarUrl, setAvatarUrl] = useState('/spruce.svg');
     const [serverList, setServerList] = useState([]);
-    function get_avatar_url(user){
-        if(user.avatar_url){
+    function get_avatar_url(user) {
+        if (user.avatar_url) {
             return user.avatar_url;
         }
         return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
@@ -54,26 +54,23 @@ const Dashboard = () => {
     // TODO: Fetch server list from API
 
     useEffect(() => {
-        try {
-            fetch('/api/auth/oauth2')
-                .then(res => {
-                    if (res.status === 200) {
-                        res.json()
-                        .then(data => {
-                            localStorage.setItem('user', JSON.stringify(data));
-                            setAvatarUrl(get_avatar_url(data));
-                        });
-                    }
-                    else {
-                        window.location.href = '/login';
-                    }
-                });
-        }
-        catch (err) {
-            // redirect to login page
-            window.location.href = '/login';
-        }
+        const fetchUserData = async () => {
+            try {
+                const res = await fetch('/api/auth/oauth2');
+                if (res.status === 200) {
+                    const data = await res.json();
+                    localStorage.setItem('user', JSON.stringify(data));
+                    setAvatarUrl(get_avatar_url(data));
+                } else {
+                    window.location.href = '/login';
+                }
+            } catch (err) {
+                // redirect to login page
+                window.location.href = '/login';
+            }
+        };
 
+        fetchUserData();
     }, []);
 
     const getStatusColor = (status) => {
@@ -131,7 +128,7 @@ const Dashboard = () => {
                                 {serverList.map((server) => (
                                     <option key={server.id} value={server.id}>{server.name}</option>
                                 ))}
-                                
+
                             </select>
                         </div>
                         <nav className="space-y-2">
