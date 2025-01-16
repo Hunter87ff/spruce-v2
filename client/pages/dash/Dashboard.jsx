@@ -11,15 +11,18 @@ import {
 } from 'lucide-react';
 
 const Dashboard = () => {
-    const [selectedServer, setSelectedServer] = useState('Spruce Gaming');
-    const [AvatarUrl, setAvatarUrl] = useState('/spruce.svg');
-    const [serverList, setServerList] = useState([]);
+    
     function get_avatar_url(user) {
         if (user.avatar_url) {
             return user.avatar_url;
         }
         return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
     }
+
+    const [selectedServer, setSelectedServer] = useState('Spruce Gaming');
+    const [AvatarUrl, setAvatarUrl] = useState(get_avatar_url(JSON.parse(localStorage.getItem('user'))) || '/spruce.svg');
+    const [serverList, setServerList] = useState([]);
+    
     const tournaments = [
         {
             id: 1,
