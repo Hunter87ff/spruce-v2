@@ -1,9 +1,8 @@
 import express from "express";
-import dotenv from 'dotenv';
 import axios from "axios";
 import {getAuthUrl, getCallbackUrl} from "./utils.js";
+import { creds } from "../config.js";
 
-dotenv.config();
 
 const auth = express.Router();
 
@@ -27,21 +26,18 @@ async function getAccessToken(req) {
 
     try {
         const params = new URLSearchParams({
-            client_id: process.env.CLIENT_ID,
-            client_secret: process.env.CLIENT_SECRET,
+            client_id: creds.client_id,
+            client_secret: creds.client_secret,
             grant_type: 'authorization_code',
             code: req.query.code,
             redirect_uri: req.protocol + '://' + req.headers.host + "/api/auth/callback",
         });
-
+        
         const response = await axios.post(tokenURL, params.toString(), {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         });
-
-        // Log the full response if needed
-        // console.log('Token Response:', response.data);
 
         return response.data.access_token; // Access token from Discord
     } catch (error) {
@@ -102,6 +98,9 @@ auth.get("/oauth2", async (req, res) => {
     }
     return res.status(_resp.status).json(_resp.data);
 });
+
+
+
 
 
 export default auth;

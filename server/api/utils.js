@@ -1,4 +1,4 @@
-import { CLIENT_ID } from "../config.js";
+import { creds } from "../config.js";
 
 
 
@@ -13,7 +13,7 @@ import { CLIENT_ID } from "../config.js";
  * @returns {string} The generated authorization URL.
  */
 export function getAuthUrl(req) {
-    return "https://discord.com/api/oauth2/authorize?client_id=" + CLIENT_ID + "&redirect_uri=" + encodeURI(req.protocol + '://' + req.headers.host + "/api/auth/callback") + "&response_type=code&scope=identify%20email%20guilds";
+    return "https://discord.com/api/oauth2/authorize?client_id=" + creds.client_id + "&redirect_uri=" + encodeURI(req.protocol + '://' + req.headers.host + "/api/auth/callback") + "&response_type=code&scope=identify%20email%20guilds";
 }
 
 export function getCallbackUrl(req) {

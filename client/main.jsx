@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import LoadingPage from './pages/LoadingPage'
 import './assets/css/index.css'
+
+const E404 = lazy(() => import('./pages/error/E404'))
 const HomePage = lazy(() => import('./pages/info/Home'));
 const AboutPage = lazy(() => import('./pages/info/About'));
 const ContactPage = lazy(() => import('./pages/info/ContactUs'));
@@ -25,6 +27,9 @@ createRoot(document.getElementById('root')).render(
             <Route path='/contact' element={<Suspense fallback={<LoadingPage />}> <ContactPage /> </Suspense>} />
             <Route path='/pricing' element={<Suspense fallback={<LoadingPage />}> <PricingPage /> </Suspense>} />
             <Route path='/dashboard' element={<Suspense fallback={<LoadingPage />}> <DashboardPage /> </Suspense>} />
+
+            {/* NOT FOUND  */}
+            <Route path="*" element={<Suspense fallback={<LoadingPage />}> <E404 /> </Suspense>} />
         </Routes>
     </BrowserRouter>
 )

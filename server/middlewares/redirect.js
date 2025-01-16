@@ -1,7 +1,8 @@
-import {INVITE_URL} from "../config.js"
+import {extras} from "../config.js"
 
 const page_redirects = {
-    "/invite" : INVITE_URL,
+    "/invite" : extras.INVITE_URL,
+    "/login" : "/api/auth/login",
 }
 
 
