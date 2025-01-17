@@ -13,7 +13,7 @@ import {
 const Dashboard = () => {
     
     function get_avatar_url(user) {
-        return user.avatar_url || `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
+        return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
     }
 
     const [selectedServer, setSelectedServer] = useState('Spruce Gaming');
