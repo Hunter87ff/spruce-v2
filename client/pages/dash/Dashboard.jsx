@@ -13,11 +13,11 @@ import {
 const Dashboard = () => {
     
     function get_avatar_url(user) {
-        return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
+        return user?`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : '/spruce.svg'
     }
 
     const [selectedServer, setSelectedServer] = useState('Spruce Gaming');
-    const [AvatarUrl, setAvatarUrl] = useState(get_avatar_url(JSON.parse(localStorage.getItem('user'))) || '/spruce.svg');
+    const [AvatarUrl, setAvatarUrl] = useState(get_avatar_url(JSON.parse(localStorage.getItem('user'))));
     const [serverList, setServerList] = useState([]);
     
     const tournaments = [
