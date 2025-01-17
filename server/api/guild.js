@@ -19,7 +19,6 @@ guild.get("/", (req, res) => {
 });
 
 guild.get("/guilds", async (req, res) => {
-    let _guilds = []
     let _token = req.cookies.token;
     if (!_token) {
         return res.status(401).json({"error": "Unauthorized"});
@@ -29,9 +28,9 @@ guild.get("/guilds", async (req, res) => {
             'Authorization': `Bearer ${_token}`
         }
     });
-    if (_resp.status == 200) {
-        _guilds = _resp.data;
-        return res.status(200).json(_guilds);
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+    if (_resp.status == 200) {;
+        return res.status(200).json(_resp.data);
     }
     return res.status(500).json({"error": "Failed to fetch guilds"});
 });

@@ -41,7 +41,7 @@ app.use(helmet({
             scriptSrc: ["'self'","'unsafe-inline'"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
             imgSrc: ["'self'", "data:", "https://lh3.googleusercontent.com/", "https://cdn.discordapp.com/"],
-            connectSrc: ["'self'"],
+            connectSrc: ["'self'", "https://discord.com"],
             fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com/"],
             objectSrc: ["'none'"],
             mediaSrc: ["'none'"],

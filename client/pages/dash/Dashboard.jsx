@@ -70,7 +70,21 @@ const Dashboard = () => {
             }
         };
 
+        const fetchServerList = async () => {
+            try {
+                const res = await fetch('/api/guild/guilds');
+                if (res.status === 200) {
+                    const data = await res.json();
+                    setServerList(data);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+
         fetchUserData();
+        fetchServerList();
     }, []);
 
     const getStatusColor = (status) => {
