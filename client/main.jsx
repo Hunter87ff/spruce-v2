@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import LoadingPage from './pages/LoadingPage'
+import MouseMoveEffect from './components/effects/MouseMoveEffect'
 import './assets/css/index.css'
 
 const E404 = lazy(() => import('./pages/error/E404'))
@@ -13,12 +14,13 @@ const PrivacyPage = lazy(() => import('./pages/info/Privacy'));
 const PricingPage = lazy(()=> import('./pages/info/PricingPage') )
 
 const DashboardPage = lazy(() => import('./pages/dash/Dashboard'));
-
+const GuildsPage = lazy(() => import('./pages/dash/Guilds'));
 
 
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>
+        <MouseMoveEffect />
         <Routes>
             <Route path="/" element={<Suspense fallback={<LoadingPage />}> <HomePage /> </Suspense>} />
             <Route path='/about' element={<Suspense fallback={<LoadingPage />}> <AboutPage /> </Suspense>} />
@@ -27,6 +29,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='/contact' element={<Suspense fallback={<LoadingPage />}> <ContactPage /> </Suspense>} />
             <Route path='/pricing' element={<Suspense fallback={<LoadingPage />}> <PricingPage /> </Suspense>} />
             <Route path='/dashboard' element={<Suspense fallback={<LoadingPage />}> <DashboardPage /> </Suspense>} />
+            <Route path='/guilds' element={<Suspense fallback={<LoadingPage />}> <GuildsPage /> </Suspense>} />
 
             {/* NOT FOUND  */}
             <Route path="*" element={<Suspense fallback={<LoadingPage />}> <E404 /> </Suspense>} />

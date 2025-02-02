@@ -5,9 +5,9 @@ import { footerSections } from '../../ext/constant.jsx';
 import configs from "../../ext/config.json";
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = (className) => {
     return (
-        <footer className="bg-gray-900 backdrop-blur-lg border-t border-gray-800 ">
+        <footer className={`${className} bg-gray-900 backdrop-blur-lg `}>
             <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-16 pb-8">
                 {/* Main footer content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -74,7 +74,7 @@ const Footer = () => {
                 <div className="pt-8 border-t border-gray-800">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="text-gray-400 text-sm">
-                            © 2024 Spruce. All rights reserved.
+                            © {new Date().getFullYear()} Spruce. All rights reserved.
                         </div>
                         <div className="flex items-center text-gray-400 text-sm">
                             <span>Made with</span>

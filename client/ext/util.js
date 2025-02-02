@@ -38,3 +38,27 @@ export const getGuilds = async () => {
 export const getAvatar = (user_id, hash, format="png") => {
     return `/api/avatar/user/${user_id}/${hash}`;
 }
+
+
+  /**
+   * Creates an Intersection Observer to monitor when an element enters/exits viewport
+   * @param {HTMLElement} element - The DOM element to observe
+   * @param {Function} callback - Callback function that receives a boolean indicating if element is intersecting
+   * @example
+   * // Monitor when a div enters viewport
+   * const myDiv = document.getElementById('myDiv');
+   * Observer(myDiv, (isVisible) => {
+   *   if (isVisible) {
+   *     console.log('Div is now visible');
+   *   }
+   * });
+   */
+  export const Observer = (element, callback) => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        callback(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(element);
+  };

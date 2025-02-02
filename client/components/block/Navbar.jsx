@@ -13,13 +13,13 @@ const Newbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav id="navbar" className="bg-neutral-900 fixed w-full z-50">
+        <nav id="navbar" className="bg-neutral-900/50 backdrop-blur-sm fixed w-full z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
 
                     <div className="flex-shrink-0">
-                        <Link to={'/'}>
-                            <span className="text-2xl font-bold text-emerald-500 cursor-pointer">Spruce</span>
+                        <Link to='/'>
+                            <span className="text-2xl font-bold text-emerald-400 hover:text-emerald-600 cursor-pointer">Spruce</span>
                         </Link>
                     </div>
 
@@ -29,7 +29,7 @@ const Newbar = () => {
                                 <a href={val.url} key={index} className="text-gray-300 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">{val.text}</a>
                             ))}
                             <Link to={'/dashboard'}>
-                                <button className="bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition-colors">{_onboard_text}</button>
+                                <button className="bg-inherit text-white px-4 py-2 rounded-md text-sm font-medium hover:text-emerald-500">{_onboard_text}</button>
                             </Link>
                         </div>
                     </div>

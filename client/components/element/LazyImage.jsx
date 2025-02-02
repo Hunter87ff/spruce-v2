@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+
 
 const LazyImage = ({ src, placeholder, alt, ...props }) => {
     const [isVisible, setIsVisible] = useState(false);
@@ -35,6 +37,12 @@ const LazyImage = ({ src, placeholder, alt, ...props }) => {
             style={{ display: 'block', width: '100%', height: 'auto' }}
         />
     );
+};
+
+LazyImage.propTypes = {
+    src: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
 };
 
 export default LazyImage;

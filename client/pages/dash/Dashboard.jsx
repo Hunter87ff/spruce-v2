@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {
     Users,
     Trophy,
@@ -11,12 +13,13 @@ import {
 } from 'lucide-react';
 
 const Dashboard = () => {
-    
+    const navigate = useNavigate();
+
     function get_avatar_url(user) {
         return user?`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : '/spruce.svg'
     }
 
-    const [selectedServer, setSelectedServer] = useState('Spruce Gaming');
+    const [selectedServer, setSelectedServer] = useState('Spruce Community');
     const [AvatarUrl, setAvatarUrl] = useState(get_avatar_url(JSON.parse(localStorage.getItem('user'))));
     const [serverList, setServerList] = useState([]);
     
@@ -62,11 +65,10 @@ const Dashboard = () => {
                     localStorage.setItem('user', JSON.stringify(data));
                     setAvatarUrl(get_avatar_url(data));
                 } else {
-                    window.location.href = '/login';
+                    navigate('/login');
                 }
             } catch (err) {
-                // redirect to login page
-                window.location.href = '/login';
+                navigate('/login');
             }
         };
 
