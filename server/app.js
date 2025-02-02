@@ -2,18 +2,15 @@ import { configDotenv } from "dotenv";
 configDotenv();
 
 import express from "express";
-import guild from "./api/guild.js";
-import auth from "./api/auth.js";
-
 import path from "path";
 import { fileURLToPath } from 'url';
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import compression from "compression";
 
-
+import { endpoints } from "./api/endpoints.js";
 import {redirect_pages} from "./middlewares/redirect.js";
-import { configEnv, client } from "./config.js";
+import { configEnv, client, PORT } from "./config.js";
 
 
 
@@ -52,10 +49,10 @@ app.use(helmet({
 
 
 //load routes
-app.use("/api/guild", guild);
-app.use("/api/auth", auth);
-app.use(express.static(path.join(__dirname, '../dist'), { maxAge: '30d' }));
-app.use(express.static('../public', { maxAge: '30d' }));
+app.use("/api", endpoints);
+
+app.use(express.static(path.join(__dirname, '../dist'), { maxAge: '360d' }));
+app.use(express.static('../public', { maxAge: '360d' }));
 
 
 
@@ -76,11 +73,12 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(3001, async () => {
-    console.log("[+] Server is running on port 3001");
+app.listen(PORT, async () => {
     await client.connect();
     console.log("[+] Connected to database");
+
     await configEnv();
+    console.log(`[+] Server is running on port ${PORT}`);
 });
 
 

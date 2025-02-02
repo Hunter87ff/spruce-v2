@@ -4,6 +4,9 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 process.env.ENVIRONMENT = process.env.ENVIRONMENT || "development";
 configDotenv();
 
+export const PORT = process.env.PORT || 3001;
+export const api = "https://discord.com/api";
+
 
 export const creds = {
     config_id: 87,

@@ -6,9 +6,17 @@ const Guilds = () => {
 
     useEffect(() => {
         const fetchGuilds = async () => {
-            const res = await fetch('/api/guild/guilds');
-            const data = await res.json();
-            setGuilds(data);
+            try {
+                const res = await fetch('/api/guilds');
+                const data = await res.json();
+                if(res.status > 399){
+                    window.location.href = "/login"
+                }
+                setGuilds(data);
+            }
+            catch (err) {
+                window.location.href = "/login"
+            }
         };
         fetchGuilds();
     }, []);

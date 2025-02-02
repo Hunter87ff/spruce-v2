@@ -74,7 +74,7 @@ const Dashboard = () => {
 
         const fetchServerList = async () => {
             try {
-                const res = await fetch('/api/guild/guilds');
+                const res = await fetch('/api/guilds');
                 if (res.status === 200) {
                     const data = await res.json();
                     setServerList(data);

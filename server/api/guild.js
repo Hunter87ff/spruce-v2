@@ -1,7 +1,7 @@
 import express from "express";
 import axios from "axios";
 import rateLimit from "express-rate-limit";
-
+import { api } from "../config.js";
 
 const guild = express.Router();
 
@@ -14,16 +14,12 @@ const limiter = rateLimit({
 guild.use(limiter);
 
 
-guild.get("/", (req, res) => {
-  res.send({"message": "Guild API is alive!"});
-});
-
-guild.get("/guilds", async (req, res) => {
+guild.get("/", async (req, res) => {
     let _token = req.cookies.token;
     if (!_token) {
         return res.status(401).json({"error": "Unauthorized"});
     }
-    const _resp = await axios.get("https://discord.com/api/users/@me/guilds", {
+    const _resp = await axios.get(`${api}/users/@me/guilds`, {
         headers: {
             'Authorization': `Bearer ${_token}`
         }
@@ -34,6 +30,7 @@ guild.get("/guilds", async (req, res) => {
     }
     return res.status(500).json({"error": "Failed to fetch guilds"});
 });
+
 
 
 
