@@ -28,7 +28,7 @@ const Newbar = () => {
                             {links.map((val, index) => (
                                 <a href={val.url} key={index} className="text-gray-300 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">{val.text}</a>
                             ))}
-                            <Link to={'/dashboard'}>
+                            <Link to={'/servers'}>
                                 <button className="bg-inherit text-white px-4 py-2 rounded-md text-sm font-medium hover:text-emerald-500">{_onboard_text}</button>
                             </Link>
                         </div>
@@ -52,9 +52,8 @@ const Newbar = () => {
                     {links.map((val, index) => (
                         <a href={val.url} key={index}
                             className="text-gray-300 hover:text-emerald-500 block px-3 py-2 rounded-md text-base font-medium">{val.text}</a>
-
                     ))}
-                    <Link to={'/dashboard'}>
+                    <Link to={'/servers'}>
                         <button className="w-full bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition-colors mt-4">Dashboard</button>
                     </Link>
                 </div>

@@ -6,12 +6,12 @@ const GuildCard = ({ id, name, icon }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-row h-20 bg-neutral-800/50 rounded-lg hover:bg-neutral-700/50 transition-colors cursor-pointer" onClick={() => navigate(`/guild/${id}`)}>
+        <div className="flex flex-row h-20 bg-neutral-800/50 rounded-lg hover:bg-neutral-700/50 transition-colors cursor-pointer" onClick={() => navigate(`/servers/${id}`)}>
             <div className="w-12 h-full mx-2 flex items-center justify-center">
             <LazyImage 
                 src={icon 
                     ? `https://cdn.discordapp.com/icons/${id}/${icon}.png` 
-                    : '/spruce.svg'} 
+                    : '/spruce.svg'}
                 placeholder={'/spruce.svg'}
                 alt={name}
                 className="rounded-full mr-4"

@@ -59,7 +59,7 @@ auth.get("/callback", async (req, res) => {
             secure: true,
             sameSite: 'Strict'
         });
-        return res.status(200).redirect("/dashboard");
+        return res.status(200).redirect("/servers");
         // return res.status(200).json({token: _token});
     }
     catch (err) {

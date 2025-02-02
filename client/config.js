@@ -1,7 +1,6 @@
 // import { configDotenv } from "dotenv";
 // configDotenv();
 
-
 export const INVITE_URL = "https://discord.com/oauth2/authorize?client_id=931202912888164474&permissions=8&scope=bot"
 
 export const API_ROUTE =  import.meta.env.VITE_API_ROUTE ||"/api";
