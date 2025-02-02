@@ -26,7 +26,7 @@ const Newbar = () => {
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-center space-x-4">
                             {links.map((val, index) => (
-                                <a href={val.url} key={index} className="text-gray-300 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">{val.text}</a>
+                                <Link to={val.url} key={index} className="text-gray-300 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">{val.text}</Link>
                             ))}
                             <Link to={'/servers'}>
                                 <button className="bg-inherit text-white px-4 py-2 rounded-md text-sm font-medium hover:text-emerald-500">{_onboard_text}</button>
@@ -50,8 +50,8 @@ const Newbar = () => {
             <div id="mobile-menu" className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-neutral-800`}>
                 <div className="px-2 pt-2 pb-3 space-y-1">
                     {links.map((val, index) => (
-                        <a href={val.url} key={index}
-                            className="text-gray-300 hover:text-emerald-500 block px-3 py-2 rounded-md text-base font-medium">{val.text}</a>
+                        <Link to={val.url} key={index}
+                            className="text-gray-300 hover:text-emerald-500 block px-3 py-2 rounded-md text-base font-medium">{val.text}</Link>
                     ))}
                     <Link to={'/servers'}>
                         <button className="w-full bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition-colors mt-4">Dashboard</button>
