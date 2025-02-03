@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import Permissions from '../../ext/permissions.js';
 
 const Guilds = () => {
-    const [guilds, setGuilds] = useState(JSON.parse(localStorage.getItem('guilds')) || []);
-
+    const [guilds, setGuilds] = useState([]);
+    console.log('guilds');
     useEffect(() => {
+
         const fetchGuilds = async () => {
             try {
                 const res = await fetch(`/api/guilds`);
@@ -30,8 +31,8 @@ const Guilds = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center justify-between">
                     {guilds?.map((guild) => {
                         const perms = new Permissions(guild.permissions);
-                        return perms.manageGuild&&(
-                        <GuildCard key={guild.id} id={guild.id} name={guild.name} icon={guild.icon} />)
+                        return perms.manageGuild && (
+                            <GuildCard key={guild.id} id={guild.id} name={guild.name} icon={guild.icon} />)
                     })}
                 </div>
             </div>
