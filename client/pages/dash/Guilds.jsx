@@ -4,7 +4,6 @@ import Permissions from '../../ext/permissions.js';
 
 const Guilds = () => {
     const [guilds, setGuilds] = useState([]);
-    console.log('guilds');
     useEffect(() => {
 
         const fetchGuilds = async () => {
