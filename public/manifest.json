@@ -1,17 +1,17 @@
 {
     "name": "Spruce",
-    "version": "1.0.0",
+    "version": "1.0.0", 
     "short_name": "Spruce",
-    "start_url": "/servers",
+    "start_url": "/",
     "description": "A multi-functional open source Discord bot, designed to streamline the management of Discord tournaments and servers.",
     "prefer_related_applications": false,
     "orientation": "portrait-primary",
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "theme_color": "#171717",
+    "background_color": "#171717",
     "display": "standalone",
     "categories": [
         "esports",
-        "games",
+        "games", 
         "entertainment",
         "tournament",
         "scrims",
@@ -22,19 +22,19 @@
     "screenshots": [],
     "icons": [
         {
-            "src": "./spruce.png",
+            "src": "/spruce.svg",
             "sizes": "16x16",
-            "type": "image/png"
+            "type": "image/svg+xml"
         },
         {
-            "src": "./spruce.png",
+            "src": "/spruce.svg", 
             "sizes": "32x32",
-            "type": "image/png"
+            "type": "image/svg+xml"
         },
         {
-            "src": "./spruce.png",
+            "src": "/spruce.svg",
             "sizes": "180x180",
-            "type": "image/png",
+            "type": "image/svg+xml",
             "purpose": "any maskable"
         }
     ],
@@ -42,7 +42,7 @@
         {
             "icons": [
                 {
-                    "src": "./img/icons/home.svg",
+                    "src": "/img/icons/home.svg",
                     "type": "image/svg+xml",
                     "sizes": "96x96"
                 }
@@ -53,7 +53,7 @@
         {
             "icons": [
                 {
-                    "src": "./img/icons/server.svg",
+                    "src": "/img/icons/server.svg", 
                     "type": "image/svg+xml",
                     "sizes": "96x96"
                 }
