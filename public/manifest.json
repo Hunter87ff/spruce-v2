@@ -2,6 +2,7 @@
     "name": "Spruce",
     "version": "1.0.0",
     "short_name": "Spruce",
+    "start_url": "/servers",
     "description": "A multi-functional open source Discord bot, designed to streamline the management of Discord tournaments and servers.",
     "prefer_related_applications": false,
     "orientation": "portrait-primary",
