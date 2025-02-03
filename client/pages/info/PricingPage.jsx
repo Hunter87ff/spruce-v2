@@ -11,46 +11,46 @@ const PricingPage = () => {
             name: "Basic",
             description: "Perfect for small communities and casual tournaments",
             price: {
-                monthly: 1,
-                annual: 13
+                monthly: 0,
+                annual: 0
             },
             features: [
-                "Up to 3 tournaments per month",
-                "Single elimination brackets",
-                "Basic bot commands",
+                "3 tournaments ",
+                "Basic bot features",
                 "100 participants per tournament",
-                "Email support",
                 "Discord role integration",
                 "Basic analytics"
             ],
             notIncluded: [
-                "Custom bot branding",
+                "API access",
+                "Custom bot",
+                "Custom Point Table",
                 "Priority support",
-                "Advanced tournament formats"
+                "Duplicate Tag Filter",
             ]
         },
         {
             name: "Standard",
             description: "Ideal for growing communities and regular events",
             price: {
-                monthly: 3,
-                annual: 35
+                monthly: 1,
+                annual: 9
             },
             features: [
-                "Up to 10 tournaments per month",
-                "Multiple bracket formats",
-                "Advanced bot commands",
+                "Up to 10 tournaments",
+                "Duplicate Tag Filter",
+                "Advanced bot features",
                 "500 participants per tournament",
-                "Priority email support",
                 "Custom role management",
                 "Detailed analytics",
-                "Custom bot branding",
                 "Tournament scheduling",
                 "Automated announcements"
             ],
             notIncluded: [
                 "API access",
-                "White-label solution"
+                "Custom bot",
+                "Custom Point Table",
+                
             ],
             popular: true
         },
@@ -58,23 +58,22 @@ const PricingPage = () => {
             name: "Premium",
             description: "For professional tournaments and large communities",
             price: {
-                monthly: 5,
-                annual: 50
+                monthly: 3,
+                annual: 29
             },
             features: [
+                "Custom bot",
                 "Unlimited tournaments",
-                "All bracket formats",
+                "Custom Point Table",
+                "Duplicate Tag Filter",
                 "Premium bot features",
                 "Unlimited participants",
                 "24/7 priority support",
                 "Advanced role management",
                 "Advanced analytics",
-                "Custom bot branding",
                 "Tournament scheduling",
                 "Automated announcements",
                 "API access",
-                "White-label solution",
-                "Custom development support"
             ],
             notIncluded: []
         }

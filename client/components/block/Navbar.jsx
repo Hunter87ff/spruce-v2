@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { scrollToElement } from "../../ext/helper.jsx";
 
 const Newbar = () => {
     const _onboard_text = "Dashboard"
     const links = [
         { text: "Home", url: "/" },
-        { text: "Tournaments", url: "#" },
-        { text: "Features", url: "/#features" },
+        { text: "About", url: "/about" },
+        { text: "Features", url: "/#features", callback: ()=>{scrollToElement('features')} },
         { text: "Pricing", url: "/pricing" },
     ]
 
@@ -26,7 +27,7 @@ const Newbar = () => {
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-center space-x-4">
                             {links.map((val, index) => (
-                                <Link to={val.url} key={index} className="text-gray-300 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">{val.text}</Link>
+                                <Link onClick={()=>{val.callback?.()}} to={val.url} key={index} className="text-gray-300 hover:text-emerald-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">{val.text}</Link>
                             ))}
                             <Link to={'/servers'}>
                                 <button className="bg-inherit text-white px-4 py-2 rounded-md text-sm font-medium hover:text-emerald-500">{_onboard_text}</button>

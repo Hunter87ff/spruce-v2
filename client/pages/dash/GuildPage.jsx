@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Server, Trophy, Terminal, Menu, Settings, Crown } from "lucide-react"
-
+import {INVITE_URL} from "../../config.js"
 const GuildPage = () => {
     const navigate = useNavigate();
+    const params = useParams();
     const tabs = [
         {
+            id: 3462346,
             name: "Settings",
             icon: Settings
         },
         {
+            id: 3462347,
             name: "Servers",
             icon: Server,
             url : '/servers'
         },
         {
+            id: 3462348,
             name: "Events",
             icon: Trophy
         },
         {
+            id: 3462349,
             name: "Commands",
             icon: Terminal
         },
         {
+            id: 3462350,
             name: "Subscription",
             icon: Crown
         }
@@ -30,13 +36,33 @@ const GuildPage = () => {
     const [isMobile, setisMobile] = useState(window.innerWidth < 768);
     const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 768);
     const [activeTab, setActiveTab] = useState(0);
+    const [guild, setGuild] = useState({});
+
+    // fetch guild from backend
+    async function fetchGuild(){
+        const guildId = parseInt(params.id);
+        try{
+            
+            const _resp = await fetch(`/api/guilds/${guildId}`);
+            const data = await _resp.json();
+            if(_resp.status==408){
+                window.location.href=INVITE_URL+guildId;
+            }
+            setGuild(data);
+        }catch(err){
+            // window.location.href=INVITE_URL+guildId;
+        }
+    }
+
+    // change mobile status based on window width
+    async function windowManage() {
+        window.onresize = () => {
+            setisMobile(window.innerWidth < 768)
+        }
+    }
 
     useEffect(() => {
-        async function windowManage() {
-            window.onresize = () => {
-                setisMobile(window.innerWidth < 768)
-            }
-        }
+        fetchGuild()
         windowManage(), []
     })
 
@@ -49,9 +75,12 @@ const GuildPage = () => {
                 </div>
                 <ul className="p-4 *:my-4 *:bg-gray-700 *:p-2 *:rounded-md flex-shrink-0 whitespace-nowrap">
                     {tabs.map((tab, index) => (
-                        <li key={index} onClick={() => { 
+                        <li key={tab.id} onClick={() => { 
                             if(tab.url) navigate(tab.url);
-                            setActiveTab(index); setIsSidebarOpen(false) }} className="flex items-center gap-2 hover:bg-gray-600 transition-colors duration-300 cursor-pointer">
+
+                            setActiveTab(index);
+
+                            setIsSidebarOpen(false) }} className="flex items-center gap-2 hover:bg-gray-600 transition-colors duration-300 cursor-pointer">
                             <tab.icon /> {tab.name}
                         </li>
                     ))}
@@ -61,12 +90,12 @@ const GuildPage = () => {
             <div id="content" className={`${!isMobile && 'ml-72'} flex-1 min-w-screen min-h-screen bg-gray-900 text-white`}>
 
                 <div className="flex flex-row justify-between items-center bg-gray-800 p-4">
-                    <h2 className="text-2xl font-bold">{tabs[activeTab].name}</h2>
+                    <h2 className="text-2xl font-bold">{tabs[activeTab]?.name}</h2>
                     {isMobile && <Menu className="hover:text-gray-400 transition-colors duration-300 cursor-pointer" onClick={() => setIsSidebarOpen(!isSidebarOpen)} />}
                 </div>
 
 
-                {activeTab == 0 && (
+                {tabs[activeTab].id==3462346 && (
                     <div className={`container p-4 ${!isMobile ? 'grid grid-cols-2' : 'flex flex-col '} w-full h-full gap-4`}>
 
                         <div className="content  w-full h-full rounded-lg overflow-hidden">
@@ -96,22 +125,17 @@ const GuildPage = () => {
                     </div>
 
                 )}
-                {activeTab == 1 && (
-                    <div className="container">
-                        <h2>Servers</h2>
-                    </div>
-                )}
-                {activeTab == 2 && (
+                {tabs[activeTab].id==3462348 && (
                     <div className="container">
                         <h2>Events</h2>
                     </div>
                 )}
-                {activeTab == 3 && (
+                {tabs[activeTab].id==3462349 && (
                     <div className="container">
                         <h2>Commands</h2>
                     </div>
                 )}
-                {activeTab == 4 && (
+                {tabs[activeTab].id==3462350 && (
                     <div className="container">
                         <h2>Subscription</h2>
                     </div>
