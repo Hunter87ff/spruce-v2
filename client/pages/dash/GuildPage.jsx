@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Home, Trophy, Terminal, Menu, Settings, Crown } from "lucide-react"
+import { Server, Trophy, Terminal, Menu, Settings, Crown } from "lucide-react"
 
 const GuildPage = () => {
     const navigate = useNavigate();
@@ -8,6 +8,10 @@ const GuildPage = () => {
         {
             name: "Settings",
             icon: Settings
+        },
+        {
+            name: "Servers",
+            icon: Server
         },
         {
             name: "Events",
@@ -44,7 +48,7 @@ const GuildPage = () => {
                 </div>
                 <ul className="p-4 *:my-4 *:bg-gray-700 *:p-2 *:rounded-md flex-shrink-0 whitespace-nowrap">
                     {tabs.map((tab, index) => (
-                        <li key={index} onClick={() => setActiveTab(index)} className="flex items-center gap-2 hover:bg-gray-600 transition-colors duration-300 cursor-pointer">
+                        <li key={index} onClick={() => { setActiveTab(index); setIsSidebarOpen(false) }} className="flex items-center gap-2 hover:bg-gray-600 transition-colors duration-300 cursor-pointer">
                             <tab.icon /> {tab.name}
                         </li>
                     ))}
@@ -61,7 +65,7 @@ const GuildPage = () => {
 
                 {activeTab == 0 && (
                     <div className={`container p-4 ${!isMobile ? 'grid grid-cols-2' : 'flex flex-col '} w-full h-full gap-4`}>
-                        
+
                         <div className="content  w-full h-full rounded-lg overflow-hidden">
                             <div className="cards my-4">
                                 <div className="header rounded-t-lg  p-4 w-full bg-gray-700">
@@ -91,15 +95,20 @@ const GuildPage = () => {
                 )}
                 {activeTab == 1 && (
                     <div className="container">
-                        <h2>Events</h2>
+                        <h2>Servers</h2>
                     </div>
                 )}
                 {activeTab == 2 && (
                     <div className="container">
-                        <h2>Commands</h2>
+                        <h2>Events</h2>
                     </div>
                 )}
                 {activeTab == 3 && (
+                    <div className="container">
+                        <h2>Commands</h2>
+                    </div>
+                )}
+                {activeTab == 4 && (
                     <div className="container">
                         <h2>Subscription</h2>
                     </div>
