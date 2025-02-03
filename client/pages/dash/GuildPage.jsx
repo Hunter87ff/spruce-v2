@@ -11,7 +11,8 @@ const GuildPage = () => {
         },
         {
             name: "Servers",
-            icon: Server
+            icon: Server,
+            url : '/servers'
         },
         {
             name: "Events",
@@ -43,12 +44,14 @@ const GuildPage = () => {
     return (
         <div className="container flex-row flex min-w-screen min-h-screen">
             <div id="sidebar" className={`fixed text-white overflow-hidden transition-all duration-200  z-10 h-screen  bg-gray-800 ${isSidebarOpen || !isMobile ? 'w-72' : 'w-0 '}`}>
-                <div className="header bg-gray-700 p-4">
+                <div className="header bg-emerald-700 p-4">
                     <h2 className="text-2xl font-bold cursor-pointer" onClick={() => navigate('/')}>Spruce</h2>
                 </div>
                 <ul className="p-4 *:my-4 *:bg-gray-700 *:p-2 *:rounded-md flex-shrink-0 whitespace-nowrap">
                     {tabs.map((tab, index) => (
-                        <li key={index} onClick={() => { setActiveTab(index); setIsSidebarOpen(false) }} className="flex items-center gap-2 hover:bg-gray-600 transition-colors duration-300 cursor-pointer">
+                        <li key={index} onClick={() => { 
+                            if(tab.url) navigate(tab.url);
+                            setActiveTab(index); setIsSidebarOpen(false) }} className="flex items-center gap-2 hover:bg-gray-600 transition-colors duration-300 cursor-pointer">
                             <tab.icon /> {tab.name}
                         </li>
                     ))}
