@@ -1,5 +1,5 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
 User-agent: *
-Allow: /public/
-Sitemap:https://sprucbot.tech/sitemap.xml
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Sitemap: https://sprucbot.tech/sitemap.xml

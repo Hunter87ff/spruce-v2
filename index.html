@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" class="html">
 
-<head>
+<head id="main-head">
     <title>Spruce</title>
 
     <!-- Favicon -->
@@ -9,49 +9,40 @@
 
     <!--[ Meta for browser ]-->
     <meta charset='UTF-8' />
-    <meta content='width=device-width, initial-scale=1, minimum-scale=1' name='viewport' />
+    <meta name='viewport' content='width=device-width, initial-scale=1'  />
     <meta content='IE=edge' http-equiv='X-UA-Compatible' />
-    <meta content='yes' name='apple-mobile-web-app-capable' />
-    <meta content='yes' name='mobile-web-app-capable' />
-    <meta content='yes' name='apple-mobile-web-app-status-bar-style' />
-    <meta content='black-translucent' name='apple-mobile-web-app-status-bar-style' />
-
-    <!-- Discord Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: *.discordapp.com *.discord.com;">
+    <meta name='apple-mobile-web-app-capable' content='yes'  />
+    <meta name='mobile-web-app-capable' content='yes'  />
+    <meta name='apple-mobile-web-app-status-bar-style' content='yes'  />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'  />
 
     <!-- META DETAILS, SEO CONFIGURATION -->
     <meta content='Spruce' property='og:title' />
     <meta content='website' property='og:type' />
     <meta content='https://sprucbot.tech' property='og:url' />
     <meta content='Spruce' property='og:site_name' />
-    <meta content='Spruce Bot, Everything you needed to manage Esport Tournaments' name='description' />
-    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot'
-        name='keywords' />
+    <meta content='Spruce, Everything you needed to manage Esport Tournaments' name='description' />
+    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot' name='keywords' />
 
 
     <!--[ Open graph ]-->
-    <meta content='Spruce Bot' property='og:title' />
+    <meta content='Spruce' property='og:title' />
     <meta content='https://sprucbot.tech' property='og:url' />
     <meta content='Spruce Bot' property='og:site_name' />
     <meta content='website' property='og:type' />
-    <meta
-        content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.'
-        property='og:description' />
-    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot'
-        name='keywords' />
+    <meta content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.' property='og:description' />
+    <meta content='Discord bot, esports bot, best tournament managing bot, discord, text2speech, AI, music bot' name='keywords' />
     <meta content='Spruce Bot' property='og:image:alt' />
 
     <!--[ Twitter Card ]-->
-    <meta content='Spruce Bot' name='twitter:title' />
+    <meta content='Spruce' name='twitter:title' />
     <meta content='https://sprucbot.tech' name='twitter:url' />
-    <meta
-        content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.'
-        name='twitter:description' />
+    <meta content='Spruce Is An Esports Tournament Management Bot, With Some Rare Features. With other features like Moderation, Role, Utility, Music etc.' name='twitter:description' />
     <meta content='' name='twitter:card' />
     <meta content='Spruce Bot' name='twitter:image:alt' />
 
     <!-- Manifest -->
-    <link rel="manifest" href="assets/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
 
     <style>
         /* Loading page animation  */
@@ -65,18 +56,20 @@
     </style>
 
     <!-- Preload Fonts -->
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
-        as="style">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body style="background-color: #171717;">
     <div id="root"></div>
     <script type="module" src="client/main.jsx"></script>
+    <script>
+        // dynamic canonical link
+        const canonical_link = document.createElement('link');
+        canonical_link.rel = 'canonical';
+        canonical_link.href = window.location.href;
+        document.head.appendChild(canonical_link);
+    </script>
 </body>
-
 </html>

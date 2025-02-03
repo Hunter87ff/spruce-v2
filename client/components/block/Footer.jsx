@@ -1,11 +1,15 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Twitter, Github, Heart } from 'lucide-react';
 import { DiscordIcon } from '../../ext/icons.jsx';
 import { footerSections } from '../../ext/constant.jsx';
-import configs from "../../ext/config.json";
-import { Link } from 'react-router-dom';
+import { SUPPORT_SERVER, GITHUB } from '../../config.js';
+import {scrollToTop} from "../../ext/helper.jsx"
 
 const Footer = (className) => {
+    useEffect(()=>{
+        scrollToTop();
+    })
     return (
         <footer className={`${className} bg-gray-900 backdrop-blur-lg `}>
             <div className="max-w-7xl mx-auto px-4 lg:px-8 pt-16 pb-8">
@@ -21,13 +25,13 @@ const Footer = (className) => {
                             Elevate your Discord server with the most comprehensive esports and community management bot. Built for competitive gaming communities.
                         </p>
                         <div className="flex space-x-4">
-                            <Link to={`${configs.SUPPORT_SERVER}`} className="text-gray-400 hover:text-white transition-colors">
+                            <Link to={`${SUPPORT_SERVER}`} className="text-gray-400 hover:text-white transition-colors">
                                 <DiscordIcon className="h-6 w-6" />
                             </Link>
                             <Link to="#" className="text-gray-400 hover:text-white transition-colors">
                                 <Twitter className="h-6 w-6" />
                             </Link>
-                            <Link to={`${configs.GITHUB}`} className="text-gray-400 hover:text-white transition-colors">
+                            <Link to={`${GITHUB}`} className="text-gray-400 hover:text-white transition-colors">
                                 <Github className="h-6 w-6" />
                             </Link>
                         </div>
