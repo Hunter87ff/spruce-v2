@@ -14,7 +14,7 @@ const PrivacyPage = lazy(() => import('./pages/info/Privacy'));
 const PricingPage = lazy(()=> import('./pages/info/PricingPage') )
 
 const GuildsPage = lazy(() => import('./pages/dash/Guilds'));
-
+const GuildPage = lazy(() => import('./pages/dash/GuildPage'));
 
 
 createRoot(document.getElementById('root')).render(
@@ -28,6 +28,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='/contact' element={<Suspense fallback={<LoadingPage />}> <ContactPage /> </Suspense>} />
             <Route path='/pricing' element={<Suspense fallback={<LoadingPage />}> <PricingPage /> </Suspense>} />
             <Route path='/servers' element={<Suspense fallback={<LoadingPage />}> <GuildsPage /> </Suspense>} />
+            <Route path='/servers/:id' element={<Suspense fallback={<LoadingPage />}> <GuildPage /> </Suspense>} />
             {/* NOT FOUND  */}
             <Route path="*" element={<Suspense fallback={<LoadingPage />}> <E404 /> </Suspense>} />
         </Routes>

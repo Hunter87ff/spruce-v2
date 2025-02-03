@@ -82,7 +82,7 @@ const Home = () => {
 
                     <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 *:z-10">
                         {features.map((val, index) => (
-                            <FeaturesCard className='border-gray-600 cursor-pointer hover:scale-105 transition-transform duration-300' key={index} icon={val.icon} title={val.title} description={val.description} />
+                            <FeaturesCard className='border-gray-600 border cursor-pointer hover:scale-105 transition-transform duration-300' key={index} icon={val.icon} title={val.title} description={val.description} />
                         ))}
                     </div>
                 </div>

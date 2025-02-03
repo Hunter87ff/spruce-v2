@@ -7,7 +7,7 @@ function FeaturesCard({ icon, title, description, className="" }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={`${className} bg-black rounded-xl p-6 border border-transparent`}>
+            className={`${className} bg-black rounded-xl p-6 border`}>
             <div className="h-12 w-12 rounded-lg flex items-center justify-center mb-4">
                 {icon}
             </div>
