@@ -15,20 +15,25 @@ guild.use(limiter);
 
 
 guild.get("/", async (req, res) => {
-    let _token = req.cookies.token;
-    if (!_token) {
-        return res.status(401).json({"error": "Unauthorized"});
-    }
-    const _resp = await axios.get(`${api}/users/@me/guilds`, {
-        headers: {
-            'Authorization': `Bearer ${_token}`
+    try {
+        let _token = req.cookies.token;
+        if (!_token) {
+            return res.status(401).json({ "error": "Unauthorized" });
         }
-    });
-    res.setHeader('Cache-Control', 'public, max-age=3600');
-    if (_resp.status == 200) {;
-        return res.status(200).json(_resp.data);
+        const _resp = await axios.get(`${api}/users/@me/guilds`, {
+            headers: {
+                'Authorization': `Bearer ${_token}`
+            }
+        });
+        res.setHeader('Cache-Control', 'public, max-age=3600');
+        if (_resp.status == 200) {
+            ;
+            return res.status(200).json(_resp.data);
+        }
     }
-    return res.status(500).json({"error": "Failed to fetch guilds"});
+    catch (err) {
+        return res.status(500).json({ "error": "Failed to fetch guilds" });
+    }
 });
 
 
