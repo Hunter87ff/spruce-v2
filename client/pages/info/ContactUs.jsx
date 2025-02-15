@@ -8,21 +8,18 @@ const ContactUs = () => {
     const [openFaq, setOpenFaq] = useState(null);
 
     const faqs = [
+        
         {
-            question: "How many games do we organize ?",
-            answer: "We mostly organize BGMI and Free Fire tournaments. But we also organize other games like Valorant, CODM occasionally."
+            question: "How many games we can organise with spruce?",
+            answer: "You can organise almost every game with spruce. as it provides custom group formation."
         },
         {
-            question: "What are the supported withdrawl methods?",
-            answer: "User can receive their winning amount through Paytm, UPI, Bank Transfer, and other payment methods."
+            question: "Why the paid features are available for free?",
+            answer: "Right now we're trying to get some user feed back to improve it even further that's why we've released some paid services for free."
         },
         {
-            question: "How many time it takes to receive the winning amount?",
-            answer: "Winning amount will be credited to your account after the tournament results are declared. It usually takes 1-2 hours."
-        },
-        {
-            question: "What's included in premium support?",
-            answer: "Premium support includes 24/7 priority response, dedicated account manager, and weekend support coverage."
+            question: "Facing trouble to manage server through dashboard.",
+            answer: "There might be some maintanance in the web based dashboard. during this time we suggest you to use spruce through commands."
         }
     ];
 
@@ -77,40 +74,6 @@ const ContactUs = () => {
                     </div>
                 </div>
 
-                {/* Office Information */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                    <div className="bg-gray-800/50 rounded-xl p-8">
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h2 className="text-2xl font-bold text-white mb-6">Visit Our Office</h2>
-                                <div className="space-y-4">
-                                    <div className="flex items-start gap-4">
-                                        <MapPin className="w-6 h-6 text-blue-500" />
-                                        <div>
-                                            <p className="text-white">123 Business Avenue</p>
-                                            <p className="text-gray-400">Suite 100</p>
-                                            <p className="text-gray-400">New York, NY 10001</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-4">
-                                        <Clock className="w-6 h-6 text-blue-500" />
-                                        <div>
-                                            <p className="text-white">Business Hours</p>
-                                            <p className="text-gray-400">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                                            <p className="text-gray-400">Saturday - Sunday: Closed</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-64 md:h-auto bg-gray-700 rounded-lg">
-                                {/* Map placeholder - Replace with actual map component */}
-                                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                                    Map Integration
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 {/* FAQs Section */}
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
