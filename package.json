@@ -1,6 +1,7 @@
 {
   "name": "spruce-v2",
-  "private": true,
+  "description":"Upgraded site of Spruce for external management and features, Full discord oauth2 integration on top of MERN",
+  "private": false,
   "main": "server/app.js",
   "version": "1.0.0",
   "type": "module",
