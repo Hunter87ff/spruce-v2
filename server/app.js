@@ -35,14 +35,15 @@ app.use(helmet({
     contentSecurityPolicy: { 
         directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'","'unsafe-inline'", "https://sdk.cashfree.com"],
+            scriptSrc: ["'self'","'unsafe-inline'", "https://*.cashfree.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
             imgSrc: ["'self'", "data:", "https://lh3.googleusercontent.com/", "https://cdn.discordapp.com/"],
             connectSrc: ["'self'", "https://discord.com"],
             fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com/"],
             objectSrc: ["'none'"],
             mediaSrc: ["'none'"],
-            frameSrc: ["'none'"],
+            frameSrc: ["https://*.cashfree.com"],
+            formAction: ["https://*.cashfree.com"],
         }
     }
 }));
