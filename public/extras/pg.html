@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="static/img/favicon/favicon.ico" type="image/x-icon">
+        <title>Redirecting To Payment</title>
+         <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+    </head>
+    <body>
+        <script>
+            const _session = new URLSearchParams(window.location.search).get('session');
+            if (!_session) {
+                window.location.href = '/';
+            }
+            const cashfree = Cashfree({
+                mode: "production",
+            });
+            let checkoutOptions = {
+                    paymentSessionId: _session,
+                    redirectTarget: "_self",
+                };
+            cashfree.checkout(checkoutOptions);
+            
+        </script>
+    </body>
+</html>
+<!-- https://sprucbot.tech/payment/prime?session=session_i8kV2ToGgSLbYsNynCvuVcPAaiRc35Wxp9gvMImaqCgnMBNFMSWszJOPJzfX4esw_A4seJQQVvGGPDuazJuFSlQbHsJKPi0zc3Fj0jKgjlOlUeOy_uOvu_kpayment -->
