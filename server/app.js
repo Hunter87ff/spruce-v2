@@ -35,7 +35,7 @@ app.use(helmet({
     contentSecurityPolicy: { 
         directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'","'unsafe-inline'"],
+            scriptSrc: ["'self'","'unsafe-inline'", "https://sdk.cashfree.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
             imgSrc: ["'self'", "data:", "https://lh3.googleusercontent.com/", "https://cdn.discordapp.com/"],
             connectSrc: ["'self'", "https://discord.com"],
