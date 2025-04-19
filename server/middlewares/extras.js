@@ -10,7 +10,7 @@ import { curlData } from "../utils/extras/curl.js";
 export async function curlRoute(req, res, next) {
     try {
         if (req.headers["user-agent"] && req.headers["user-agent"].includes("curl")) {
-            res.send(curlData)    
+            return res.send(curlData)    
         };
     } catch (error) {
         next();
