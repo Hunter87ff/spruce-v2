@@ -1,3 +1,22 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "text/plain; charset=utf-8"
+                }
+            ],
+            "has": [
+                {
+                    "type": "header",
+                    "key": "User-Agent",
+                    "value": "curl.*"
+                }
+            ],
+            "destination": "/curl-inteface.sh"
+        }
+    ]
 }
