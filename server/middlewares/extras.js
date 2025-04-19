@@ -15,4 +15,5 @@ export async function curlRoute(req, res, next) {
     } catch (error) {
         next();
     }
+    next()
 }
