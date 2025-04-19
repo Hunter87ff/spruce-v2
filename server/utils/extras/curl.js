@@ -18,49 +18,25 @@ const WEBSITE="sprucbot.tech"
 
 export const curlData = String.raw`
 ${GREEN}
- ____                                 
-/ ___|  _ __   _ __  _   _   ___  ___ 
-\___ \ | '_ \ | '__|| | | | / __|/ _ \
- ___) || |_) || |   | |_| || (__|  __/
-|____/ | .__/ |_|    \__,_| \___|\___|
-       |_|                            
-${RESET}
+ ____                                            ${BOLD}${YELLOW}SPRUCE PROVIDES:${RESET} ${GREEN}
+/ ___|  _ __   _ __  _   _   ___  ___            ${BLUE}•${RESET} Modern and intuitive event management ${GREEN}
+\___ \ | '_ \ | '__|| | | | / __|/ _ \           ${BLUE}•${RESET} Real-time guild and member statistics${GREEN}
+ ___) || |_) || |   | |_| || (__|  __/           ${BLUE}•${RESET} Customizable bot settings and commands${GREEN}
+|____/ | .__/ |_|    \__,_| \___|\___|           ${BLUE}•${RESET} Comprehensive permission management${GREEN}
+       |_|                                       ${BLUE}•${RESET} Interactive dashboard interface${GREEN}
+                                                 ${BLUE}•${RESET} Fast and responsive design${GREEN}
+${BOLD}${CYAN}=== Made with ❤️  By Hunter87 ===${RESET}
 
-${BOLD}${CYAN}=== 🌲 Spruce Bot 🌲 ===${RESET}
-
-${BOLD}${YELLOW}FEATURES:${RESET}
- ${BLUE}•${RESET} Modern and intuitive Discord bot management
- ${BLUE}•${RESET} Real-time guild and member statistics
- ${BLUE}•${RESET} Customizable bot settings and commands
- ${BLUE}•${RESET} Comprehensive permission management
- ${BLUE}•${RESET} Interactive dashboard interface
- ${BLUE}•${RESET} Fast and responsive design
-
-${BOLD}${YELLOW}TECH STACK:${RESET}
- ${PURPLE}•${RESET} ${BOLD}Frontend:${RESET} React, TailwindCSS, Vite
- ${PURPLE}•${RESET} ${BOLD}Backend:${RESET} Node.js, Express
- ${PURPLE}•${RESET} ${BOLD}API:${RESET} Discord OAuth2, Discord API
-
-${BOLD}${YELLOW}GETTING STARTED:${RESET}
- ${CYAN}1.${RESET} Visit our website at ${BOLD}${WEBSITE}${RESET}
- ${CYAN}2.${RESET} Log in with your Discord account
- ${CYAN}3.${RESET} Follow the setup wizard to configure your bot
- ${CYAN}4.${RESET} Invite Spruce to your Discord servers
- ${CYAN}5.${RESET} Manage your bot through our intuitive dashboard
-
-${BOLD}${YELLOW}DEVELOPER INFO:${RESET}
- ${GREEN}•${RESET} ${BOLD}GitHub:${RESET} ${DEVELOPER_GITHUB}
- ${GREEN}•${RESET} ${BOLD}Linkedin:${RESET} ${DEVELOPER_LINKEDIN}
- ${GREEN}•${RESET} ${BOLD}Youtube:${RESET} ${DEVELOPER_YOUTUBE}
- ${GREEN}•${RESET} ${BOLD}Instagram:${RESET} ${DEVELOPER_ISTAGRAM}
+${BOLD}${YELLOW}GETTING STARTED:${RESET}                                 ${BOLD}${YELLOW}DEVELOPER INFO:${RESET}
+ ${CYAN}1.${RESET} Visit our website at ${BOLD}${WEBSITE}${RESET}           ${GREEN}•${RESET} ${BOLD}GitHub:${RESET} ${DEVELOPER_GITHUB}
+ ${CYAN}2.${RESET} Log in with your Discord account             ${GREEN}•${RESET} ${BOLD}Linkedin:${RESET} ${DEVELOPER_LINKEDIN}
+ ${CYAN}3.${RESET} Follow the setup wizard                      ${GREEN}•${RESET} ${BOLD}Youtube:${RESET} ${DEVELOPER_YOUTUBE}
+ ${CYAN}4.${RESET} Invite Spruce to your servers                ${GREEN}•${RESET} ${BOLD}Instagram:${RESET} ${DEVELOPER_ISTAGRAM}
+ ${CYAN}5.${RESET} Manage through our dashboard
 
 ${BOLD}${YELLOW}CONNECT WITH US:${RESET}
  ${RED}•${RESET} ${BOLD}Discord:${RESET} ${DISCORD_SUPPORT_SERVER}
  ${RED}•${RESET} ${BOLD}Youtube:${RESET} Youtube.com/@SpruceHQ
  ${RED}•${RESET} ${BOLD}Email:${RESET} support@${WEBSITE}
 
-${BOLD}${CYAN}=== 🚀 Made with ❤️ by hunter87ff 🚀 ===${RESET}
-
-${YELLOW}To view this in your browser, visit ${BOLD}${WEBSITE}${RESET}
-
-`.trim()
+ `.trim()
