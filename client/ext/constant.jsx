@@ -50,7 +50,7 @@ export const footerSections = {
         title: 'Resources',
         links: [
             { name: 'Documentation', url: '#' },
-            { name: 'Status', url: '#' },
+            { name: 'Status', url: '/status' },
             { name: 'Change Log', url: 'https://github.com/Hunter87ff/Spruce/releases' },
             { name: 'Blog', url: '#' }
         ]
