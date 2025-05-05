@@ -29,7 +29,6 @@ async function startWorkflow(owner="hunter87ff", repo="spruce", workflow_id="py_
 
 // Check the status of the workflow
 export async function checkStatus(owner="hunter87ff", repo="spruce", workflow_id="py_application.yml"){
-    console.log(_token)
     const _url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/runs?branch=main`
     const _response = await fetch(_url)
     const _data = await _response.json()
