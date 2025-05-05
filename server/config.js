@@ -15,6 +15,7 @@ export const creds = {
     client_secret: process.env.CLIENT_SECRET,
     redirect_uri: process.env.REDIRECT_URI,
     client_token: process.env.CLIENT_TOKEN,
+    gh_token: process.env.GH_TOKEN,
 }
 
 

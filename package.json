@@ -1,6 +1,6 @@
 {
   "name": "spruce-v2",
-  "description":"Upgraded site of Spruce for external management and features, Full discord oauth2 integration on top of MERN",
+  "description": "Upgraded site of Spruce for external management and features, Full discord oauth2 integration on top of MERN",
   "private": false,
   "main": "server/app.js",
   "version": "1.0.0",
@@ -8,7 +8,7 @@
   "scripts": {
     "start": "vite --host --port 3000",
     "dep": "vite build && cd server && node app.js",
-    "dev": "vite --host --port 3000",
+    "server" : "cd server && node app.js",
     "prod": "vite build && cd server && pm2 start app.js -i 4 --name 'spruce'",
     "build": "vite build",
     "lint": "eslint .",

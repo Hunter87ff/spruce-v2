@@ -14,16 +14,14 @@ import { configEnv, client, PORT } from "./config.js";
 
 // extras
 import { curlRoute } from "./middlewares/extras.js";
+import { checkStatus } from "./utils/extras/serviceMonitor.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 // initialize express app
 const app = express();
 app.set('trust proxy', 1);
-
-
 
 //load extensions
 app.use(cookieParser());
@@ -31,7 +29,6 @@ app.use(express.json());
 app.use(compression());
 app.use(curlRoute);
 app.use(redirect_pages);
-
 
 // security headers
 app.use(helmet({
@@ -59,14 +56,20 @@ app.use(express.static(path.join(__dirname, '../dist'), { maxAge: '360d' }));
 app.use(express.static('../public', { maxAge: '360d' }));
 
 
+let _status = {
+    message: "Service Not Reachable...",
+    status: "offline"
+};
+
+// Set interval to check every 10 minutes
+setInterval( async () => {
+    _status = await checkStatus()
+}, 1000 * 60 * 10) // every 10 minutes
 
 app.get("/status", async (req, res) => {
-    res.send({
-        "message": "alive!!",
-    });
+    const status = await checkStatus();
+    res.json(status);
 });
-
-
 
 
 
