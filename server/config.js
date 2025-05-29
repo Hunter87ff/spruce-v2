@@ -11,7 +11,7 @@ export const api = "https://discord.com/api";
 export const creds = {
     config_id: 87,
     mongo_uri: process.env.MONGO_URI,
-    client_id: process.env.CLIENT_ID,
+    client_id: process.env.CLIENT_ID || 931202912888164474,
     client_secret: process.env.CLIENT_SECRET,
     redirect_uri: process.env.REDIRECT_URI,
     client_token: process.env.CLIENT_TOKEN,
