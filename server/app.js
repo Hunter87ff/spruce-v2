@@ -61,10 +61,10 @@ let _status = {
     status: "offline"
 };
 
-// Set interval to check every 10 minutes
+// Set interval to check every 10 sec
 setInterval( async () => {
     _status = await checkStatus()
-}, 1000 * 60 * 10) // every 10 minutes
+}, 10) // every 10 sec
 
 app.get("/status", async (req, res) => {
     const status = await checkStatus();
