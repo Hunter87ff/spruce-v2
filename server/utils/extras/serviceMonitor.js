@@ -32,7 +32,6 @@ export async function checkStatus(owner="hunter87ff", repo="spruce", workflow_id
     const _url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/runs?branch=main`
     const _response = await fetch(_url)
     const _data = await _response.json()
-
     if(!_data || !_data.workflow_runs || _data.workflow_runs.length === 0){
         return {
             message: "No workflow runs found.",
